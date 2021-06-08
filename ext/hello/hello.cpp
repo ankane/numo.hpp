@@ -21,9 +21,9 @@ void Init_hello() {
     .define_singleton_function("return_object", []() -> Rice::Object { return numo::SFloat({2, 3}); })
     .define_singleton_function("convert_object", [](Rice::Object o) { convert(o); })
     // methods
-    .define_singleton_function("ndim", [](numo::NArray a) { return a.ndim(); })
-    .define_singleton_function("size", [](numo::NArray a) { return a.size(); })
-    .define_singleton_function("contiguous?", [](numo::NArray a) { return a.is_contiguous(); })
+    .define_singleton_function("ndim", [](const numo::NArray a) { return a.ndim(); })
+    .define_singleton_function("size", [](const numo::NArray a) { return a.size(); })
+    .define_singleton_function("contiguous?", [](const numo::NArray a) { return a.is_contiguous(); })
     .define_singleton_function(
       "read_ptr",
       [](numo::Int64 a) {
