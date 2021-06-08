@@ -18,6 +18,14 @@ void Init_hello() {
         size_t n = 2;
         return numo::SFloat({n});
       })
+    .define_singleton_function("rank2", []() { return numo::SFloat({2, 3}); })
+    .define_singleton_function(
+      "rank2_dynamic",
+      []() {
+        size_t n = 2;
+        return numo::SFloat({n, n + 1});
+      })
+    .define_singleton_function("rank3", []() { return numo::SFloat({2, 3, 4}); })
     .define_singleton_function("return_object", []() -> Rice::Object { return numo::SFloat({2, 3}); })
     .define_singleton_function("convert_object", [](Rice::Object o) { convert(o); })
     // methods
