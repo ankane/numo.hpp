@@ -9,6 +9,8 @@ C++ header for [Numo](https://github.com/ruby-numo/numo-narray) and [Rice](https
 Copy [numo.hpp](include/numo.hpp) into your project and add the following lines to `extconf.rb`:
 
 ```ruby
+require "numo/narray"
+
 numo = $LOAD_PATH.find { |v| File.exist?("#{v}/numo/numo/narray.h") }
 abort "Numo header not found" unless numo && find_header("numo/narray.h", "#{numo}/numo")
 abort "Numo library not found" if Gem.win_platform? && !find_library("narray", nil, "#{numo}/numo")
