@@ -31,7 +31,7 @@ define_function("sum", [](numo::SFloat a) { /* your code */ });
 Or create a new array
 
 ```cpp
-auto a = numo::Int64({2});
+auto a = numo::Int64({3, 5});
 ```
 
 And use a pointer to write to it
