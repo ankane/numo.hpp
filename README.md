@@ -2,7 +2,7 @@
 
 C++ header for [Numo](https://github.com/ruby-numo/numo-narray) and [Rice](https://github.com/jasonroelofs/rice)
 
-[![Build Status](https://github.com/ankane/numo.hpp/workflows/build/badge.svg?branch=master)](https://github.com/ankane/numo.hpp/actions)
+[![Build Status](https://github.com/ankane/numo.hpp/actions/workflows/build.yml/badge.svg)](https://github.com/ankane/numo.hpp/actions)
 
 ## Installation
 
