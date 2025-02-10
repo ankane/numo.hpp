@@ -455,8 +455,7 @@ namespace Rice::detail {
   class From_Ruby<numo::NArray>
   {
   public:
-    Convertible is_convertible(VALUE value)
-    {
+    Convertible is_convertible(VALUE value) {
       switch (rb_type(value))
       {
         case RUBY_T_DATA:
@@ -468,8 +467,7 @@ namespace Rice::detail {
       }
     }
 
-    numo::NArray convert(VALUE x)
-    {
+    numo::NArray convert(VALUE x) {
       return numo::NArray(x);
     }
   };
@@ -493,8 +491,7 @@ namespace Rice::detail {
   class From_Ruby<numo::SFloat>
   {
   public:
-    Convertible is_convertible(VALUE value)
-    {
+    Convertible is_convertible(VALUE value) {
       switch (rb_type(value))
       {
         case RUBY_T_DATA:
@@ -506,8 +503,7 @@ namespace Rice::detail {
       }
     }
 
-    numo::SFloat convert(VALUE x)
-    {
+    numo::SFloat convert(VALUE x) {
       return numo::SFloat(x);
     }
   };
@@ -531,8 +527,7 @@ namespace Rice::detail {
   class From_Ruby<numo::DFloat>
   {
   public:
-    Convertible is_convertible(VALUE value)
-    {
+    Convertible is_convertible(VALUE value) {
       switch (rb_type(value))
       {
         case RUBY_T_DATA:
@@ -544,8 +539,7 @@ namespace Rice::detail {
       }
     }
 
-    numo::DFloat convert(VALUE x)
-    {
+    numo::DFloat convert(VALUE x) {
       return numo::DFloat(x);
     }
   };
@@ -569,8 +563,7 @@ namespace Rice::detail {
   class From_Ruby<numo::Int8>
   {
   public:
-    Convertible is_convertible(VALUE value)
-    {
+    Convertible is_convertible(VALUE value) {
       switch (rb_type(value))
       {
         case RUBY_T_DATA:
@@ -582,8 +575,7 @@ namespace Rice::detail {
       }
     }
 
-    numo::Int8 convert(VALUE x)
-    {
+    numo::Int8 convert(VALUE x) {
       return numo::Int8(x);
     }
   };
@@ -607,8 +599,7 @@ namespace Rice::detail {
   class From_Ruby<numo::Int16>
   {
   public:
-    Convertible is_convertible(VALUE value)
-    {
+    Convertible is_convertible(VALUE value) {
       switch (rb_type(value))
       {
         case RUBY_T_DATA:
@@ -620,8 +611,7 @@ namespace Rice::detail {
       }
     }
 
-    numo::Int16 convert(VALUE x)
-    {
+    numo::Int16 convert(VALUE x) {
       return numo::Int16(x);
     }
   };
@@ -645,8 +635,7 @@ namespace Rice::detail {
   class From_Ruby<numo::Int32>
   {
   public:
-    Convertible is_convertible(VALUE value)
-    {
+    Convertible is_convertible(VALUE value) {
       switch (rb_type(value))
       {
         case RUBY_T_DATA:
@@ -658,8 +647,7 @@ namespace Rice::detail {
       }
     }
 
-    numo::Int32 convert(VALUE x)
-    {
+    numo::Int32 convert(VALUE x) {
       return numo::Int32(x);
     }
   };
@@ -683,8 +671,7 @@ namespace Rice::detail {
   class From_Ruby<numo::Int64>
   {
   public:
-    Convertible is_convertible(VALUE value)
-    {
+    Convertible is_convertible(VALUE value) {
       switch (rb_type(value))
       {
         case RUBY_T_DATA:
@@ -696,8 +683,7 @@ namespace Rice::detail {
       }
     }
 
-    numo::Int64 convert(VALUE x)
-    {
+    numo::Int64 convert(VALUE x) {
       return numo::Int64(x);
     }
   };
@@ -721,8 +707,7 @@ namespace Rice::detail {
   class From_Ruby<numo::UInt8>
   {
   public:
-    Convertible is_convertible(VALUE value)
-    {
+    Convertible is_convertible(VALUE value) {
       switch (rb_type(value))
       {
         case RUBY_T_DATA:
@@ -734,8 +719,7 @@ namespace Rice::detail {
       }
     }
 
-    numo::UInt8 convert(VALUE x)
-    {
+    numo::UInt8 convert(VALUE x) {
       return numo::UInt8(x);
     }
   };
@@ -759,8 +743,7 @@ namespace Rice::detail {
   class From_Ruby<numo::UInt16>
   {
   public:
-    Convertible is_convertible(VALUE value)
-    {
+    Convertible is_convertible(VALUE value) {
       switch (rb_type(value))
       {
         case RUBY_T_DATA:
@@ -772,8 +755,7 @@ namespace Rice::detail {
       }
     }
 
-    numo::UInt16 convert(VALUE x)
-    {
+    numo::UInt16 convert(VALUE x) {
       return numo::UInt16(x);
     }
   };
@@ -797,8 +779,7 @@ namespace Rice::detail {
   class From_Ruby<numo::UInt32>
   {
   public:
-    Convertible is_convertible(VALUE value)
-    {
+    Convertible is_convertible(VALUE value) {
       switch (rb_type(value))
       {
         case RUBY_T_DATA:
@@ -810,8 +791,7 @@ namespace Rice::detail {
       }
     }
 
-    numo::UInt32 convert(VALUE x)
-    {
+    numo::UInt32 convert(VALUE x) {
       return numo::UInt32(x);
     }
   };
@@ -835,8 +815,7 @@ namespace Rice::detail {
   class From_Ruby<numo::UInt64>
   {
   public:
-    Convertible is_convertible(VALUE value)
-    {
+    Convertible is_convertible(VALUE value) {
       switch (rb_type(value))
       {
         case RUBY_T_DATA:
@@ -848,8 +827,7 @@ namespace Rice::detail {
       }
     }
 
-    numo::UInt64 convert(VALUE x)
-    {
+    numo::UInt64 convert(VALUE x) {
       return numo::UInt64(x);
     }
   };
@@ -873,8 +851,7 @@ namespace Rice::detail {
   class From_Ruby<numo::SComplex>
   {
   public:
-    Convertible is_convertible(VALUE value)
-    {
+    Convertible is_convertible(VALUE value) {
       switch (rb_type(value))
       {
         case RUBY_T_DATA:
@@ -886,8 +863,7 @@ namespace Rice::detail {
       }
     }
 
-    numo::SComplex convert(VALUE x)
-    {
+    numo::SComplex convert(VALUE x) {
       return numo::SComplex(x);
     }
   };
@@ -911,8 +887,7 @@ namespace Rice::detail {
   class From_Ruby<numo::DComplex>
   {
   public:
-    Convertible is_convertible(VALUE value)
-    {
+    Convertible is_convertible(VALUE value) {
       switch (rb_type(value))
       {
         case RUBY_T_DATA:
@@ -924,8 +899,7 @@ namespace Rice::detail {
       }
     }
 
-    numo::DComplex convert(VALUE x)
-    {
+    numo::DComplex convert(VALUE x) {
       return numo::DComplex(x);
     }
   };
@@ -949,8 +923,7 @@ namespace Rice::detail {
   class From_Ruby<numo::Bit>
   {
   public:
-    Convertible is_convertible(VALUE value)
-    {
+    Convertible is_convertible(VALUE value) {
       switch (rb_type(value))
       {
         case RUBY_T_DATA:
@@ -962,8 +935,7 @@ namespace Rice::detail {
       }
     }
 
-    numo::Bit convert(VALUE x)
-    {
+    numo::Bit convert(VALUE x) {
       return numo::Bit(x);
     }
   };
@@ -987,8 +959,7 @@ namespace Rice::detail {
   class From_Ruby<numo::RObject>
   {
   public:
-    Convertible is_convertible(VALUE value)
-    {
+    Convertible is_convertible(VALUE value) {
       switch (rb_type(value))
       {
         case RUBY_T_DATA:
@@ -1000,8 +971,7 @@ namespace Rice::detail {
       }
     }
 
-    numo::RObject convert(VALUE x)
-    {
+    numo::RObject convert(VALUE x) {
       return numo::RObject(x);
     }
   };
