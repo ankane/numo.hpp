@@ -458,6 +458,19 @@ namespace Rice::detail {
   class From_Ruby<numo::NArray>
   {
   public:
+    Convertible is_convertible(VALUE value)
+    {
+      switch (rb_type(value))
+      {
+        case RUBY_T_DATA:
+          return Data_Type<numo::NArray>::is_descendant(value) ? Convertible::Exact : Convertible::None;
+        case RUBY_T_ARRAY:
+          return Convertible::Cast;
+        default:
+          return Convertible::None;
+      }
+    }
+
     numo::NArray convert(VALUE x)
     {
       return numo::NArray(x);
@@ -486,6 +499,19 @@ namespace Rice::detail {
   class From_Ruby<numo::SFloat>
   {
   public:
+    Convertible is_convertible(VALUE value)
+    {
+      switch (rb_type(value))
+      {
+        case RUBY_T_DATA:
+          return Data_Type<numo::SFloat>::is_descendant(value) ? Convertible::Exact : Convertible::None;
+        case RUBY_T_ARRAY:
+          return Convertible::Cast;
+        default:
+          return Convertible::None;
+      }
+    }
+
     numo::SFloat convert(VALUE x)
     {
       return numo::SFloat(x);
@@ -514,6 +540,19 @@ namespace Rice::detail {
   class From_Ruby<numo::DFloat>
   {
   public:
+    Convertible is_convertible(VALUE value)
+    {
+      switch (rb_type(value))
+      {
+        case RUBY_T_DATA:
+          return Data_Type<numo::DFloat>::is_descendant(value) ? Convertible::Exact : Convertible::None;
+        case RUBY_T_ARRAY:
+          return Convertible::Cast;
+        default:
+          return Convertible::None;
+      }
+    }
+
     numo::DFloat convert(VALUE x)
     {
       return numo::DFloat(x);
@@ -542,6 +581,19 @@ namespace Rice::detail {
   class From_Ruby<numo::Int8>
   {
   public:
+    Convertible is_convertible(VALUE value)
+    {
+      switch (rb_type(value))
+      {
+        case RUBY_T_DATA:
+          return Data_Type<numo::Int8>::is_descendant(value) ? Convertible::Exact : Convertible::None;
+        case RUBY_T_ARRAY:
+          return Convertible::Cast;
+        default:
+          return Convertible::None;
+      }
+    }
+
     numo::Int8 convert(VALUE x)
     {
       return numo::Int8(x);
@@ -570,6 +622,19 @@ namespace Rice::detail {
   class From_Ruby<numo::Int16>
   {
   public:
+    Convertible is_convertible(VALUE value)
+    {
+      switch (rb_type(value))
+      {
+        case RUBY_T_DATA:
+          return Data_Type<numo::Int16>::is_descendant(value) ? Convertible::Exact : Convertible::None;
+        case RUBY_T_ARRAY:
+          return Convertible::Cast;
+        default:
+          return Convertible::None;
+      }
+    }
+
     numo::Int16 convert(VALUE x)
     {
       return numo::Int16(x);
@@ -598,6 +663,19 @@ namespace Rice::detail {
   class From_Ruby<numo::Int32>
   {
   public:
+    Convertible is_convertible(VALUE value)
+    {
+      switch (rb_type(value))
+      {
+        case RUBY_T_DATA:
+          return Data_Type<numo::Int32>::is_descendant(value) ? Convertible::Exact : Convertible::None;
+        case RUBY_T_ARRAY:
+          return Convertible::Cast;
+        default:
+          return Convertible::None;
+      }
+    }
+
     numo::Int32 convert(VALUE x)
     {
       return numo::Int32(x);
@@ -626,6 +704,19 @@ namespace Rice::detail {
   class From_Ruby<numo::Int64>
   {
   public:
+    Convertible is_convertible(VALUE value)
+    {
+      switch (rb_type(value))
+      {
+        case RUBY_T_DATA:
+          return Data_Type<numo::Int64>::is_descendant(value) ? Convertible::Exact : Convertible::None;
+        case RUBY_T_ARRAY:
+          return Convertible::Cast;
+        default:
+          return Convertible::None;
+      }
+    }
+
     numo::Int64 convert(VALUE x)
     {
       return numo::Int64(x);
@@ -654,6 +745,19 @@ namespace Rice::detail {
   class From_Ruby<numo::UInt8>
   {
   public:
+    Convertible is_convertible(VALUE value)
+    {
+      switch (rb_type(value))
+      {
+        case RUBY_T_DATA:
+          return Data_Type<numo::UInt8>::is_descendant(value) ? Convertible::Exact : Convertible::None;
+        case RUBY_T_ARRAY:
+          return Convertible::Cast;
+        default:
+          return Convertible::None;
+      }
+    }
+
     numo::UInt8 convert(VALUE x)
     {
       return numo::UInt8(x);
@@ -682,6 +786,19 @@ namespace Rice::detail {
   class From_Ruby<numo::UInt16>
   {
   public:
+    Convertible is_convertible(VALUE value)
+    {
+      switch (rb_type(value))
+      {
+        case RUBY_T_DATA:
+          return Data_Type<numo::UInt16>::is_descendant(value) ? Convertible::Exact : Convertible::None;
+        case RUBY_T_ARRAY:
+          return Convertible::Cast;
+        default:
+          return Convertible::None;
+      }
+    }
+
     numo::UInt16 convert(VALUE x)
     {
       return numo::UInt16(x);
@@ -710,6 +827,19 @@ namespace Rice::detail {
   class From_Ruby<numo::UInt32>
   {
   public:
+    Convertible is_convertible(VALUE value)
+    {
+      switch (rb_type(value))
+      {
+        case RUBY_T_DATA:
+          return Data_Type<numo::UInt32>::is_descendant(value) ? Convertible::Exact : Convertible::None;
+        case RUBY_T_ARRAY:
+          return Convertible::Cast;
+        default:
+          return Convertible::None;
+      }
+    }
+
     numo::UInt32 convert(VALUE x)
     {
       return numo::UInt32(x);
@@ -738,6 +868,19 @@ namespace Rice::detail {
   class From_Ruby<numo::UInt64>
   {
   public:
+    Convertible is_convertible(VALUE value)
+    {
+      switch (rb_type(value))
+      {
+        case RUBY_T_DATA:
+          return Data_Type<numo::UInt64>::is_descendant(value) ? Convertible::Exact : Convertible::None;
+        case RUBY_T_ARRAY:
+          return Convertible::Cast;
+        default:
+          return Convertible::None;
+      }
+    }
+
     numo::UInt64 convert(VALUE x)
     {
       return numo::UInt64(x);
@@ -766,6 +909,19 @@ namespace Rice::detail {
   class From_Ruby<numo::SComplex>
   {
   public:
+    Convertible is_convertible(VALUE value)
+    {
+      switch (rb_type(value))
+      {
+        case RUBY_T_DATA:
+          return Data_Type<numo::SComplex>::is_descendant(value) ? Convertible::Exact : Convertible::None;
+        case RUBY_T_ARRAY:
+          return Convertible::Cast;
+        default:
+          return Convertible::None;
+      }
+    }
+
     numo::SComplex convert(VALUE x)
     {
       return numo::SComplex(x);
@@ -794,6 +950,19 @@ namespace Rice::detail {
   class From_Ruby<numo::DComplex>
   {
   public:
+    Convertible is_convertible(VALUE value)
+    {
+      switch (rb_type(value))
+      {
+        case RUBY_T_DATA:
+          return Data_Type<numo::DComplex>::is_descendant(value) ? Convertible::Exact : Convertible::None;
+        case RUBY_T_ARRAY:
+          return Convertible::Cast;
+        default:
+          return Convertible::None;
+      }
+    }
+
     numo::DComplex convert(VALUE x)
     {
       return numo::DComplex(x);
@@ -822,6 +991,19 @@ namespace Rice::detail {
   class From_Ruby<numo::Bit>
   {
   public:
+    Convertible is_convertible(VALUE value)
+    {
+      switch (rb_type(value))
+      {
+        case RUBY_T_DATA:
+          return Data_Type<numo::Bit>::is_descendant(value) ? Convertible::Exact : Convertible::None;
+        case RUBY_T_ARRAY:
+          return Convertible::Cast;
+        default:
+          return Convertible::None;
+      }
+    }
+
     numo::Bit convert(VALUE x)
     {
       return numo::Bit(x);
@@ -850,6 +1032,19 @@ namespace Rice::detail {
   class From_Ruby<numo::RObject>
   {
   public:
+    Convertible is_convertible(VALUE value)
+    {
+      switch (rb_type(value))
+      {
+        case RUBY_T_DATA:
+          return Data_Type<numo::RObject>::is_descendant(value) ? Convertible::Exact : Convertible::None;
+        case RUBY_T_ARRAY:
+          return Convertible::Cast;
+        default:
+          return Convertible::None;
+      }
+    }
+
     numo::RObject convert(VALUE x)
     {
       return numo::RObject(x);
