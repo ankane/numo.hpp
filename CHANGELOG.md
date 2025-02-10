@@ -1,4 +1,4 @@
-## 0.2.0 (unreleased)
+## 0.2.0 (2025-02-10)
 
 - Added support for Rice 4.5
 - Dropped support for Rice < 4.5
