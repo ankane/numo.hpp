@@ -448,10 +448,7 @@ namespace Rice::detail {
   template<>
   struct Type<numo::NArray>
   {
-    static bool verify()
-    {
-      return true;
-    }
+    static bool verify() { return true; }
   };
 
   template<>
@@ -489,10 +486,7 @@ namespace Rice::detail {
   template<>
   struct Type<numo::SFloat>
   {
-    static bool verify()
-    {
-      return true;
-    }
+    static bool verify() { return true; }
   };
 
   template<>
@@ -530,10 +524,7 @@ namespace Rice::detail {
   template<>
   struct Type<numo::DFloat>
   {
-    static bool verify()
-    {
-      return true;
-    }
+    static bool verify() { return true; }
   };
 
   template<>
@@ -571,10 +562,7 @@ namespace Rice::detail {
   template<>
   struct Type<numo::Int8>
   {
-    static bool verify()
-    {
-      return true;
-    }
+    static bool verify() { return true; }
   };
 
   template<>
@@ -612,10 +600,7 @@ namespace Rice::detail {
   template<>
   struct Type<numo::Int16>
   {
-    static bool verify()
-    {
-      return true;
-    }
+    static bool verify() { return true; }
   };
 
   template<>
@@ -653,10 +638,7 @@ namespace Rice::detail {
   template<>
   struct Type<numo::Int32>
   {
-    static bool verify()
-    {
-      return true;
-    }
+    static bool verify() { return true; }
   };
 
   template<>
@@ -694,10 +676,7 @@ namespace Rice::detail {
   template<>
   struct Type<numo::Int64>
   {
-    static bool verify()
-    {
-      return true;
-    }
+    static bool verify() { return true; }
   };
 
   template<>
@@ -735,10 +714,7 @@ namespace Rice::detail {
   template<>
   struct Type<numo::UInt8>
   {
-    static bool verify()
-    {
-      return true;
-    }
+    static bool verify() { return true; }
   };
 
   template<>
@@ -776,10 +752,7 @@ namespace Rice::detail {
   template<>
   struct Type<numo::UInt16>
   {
-    static bool verify()
-    {
-      return true;
-    }
+    static bool verify() { return true; }
   };
 
   template<>
@@ -817,10 +790,7 @@ namespace Rice::detail {
   template<>
   struct Type<numo::UInt32>
   {
-    static bool verify()
-    {
-      return true;
-    }
+    static bool verify() { return true; }
   };
 
   template<>
@@ -858,10 +828,7 @@ namespace Rice::detail {
   template<>
   struct Type<numo::UInt64>
   {
-    static bool verify()
-    {
-      return true;
-    }
+    static bool verify() { return true; }
   };
 
   template<>
@@ -899,10 +866,7 @@ namespace Rice::detail {
   template<>
   struct Type<numo::SComplex>
   {
-    static bool verify()
-    {
-      return true;
-    }
+    static bool verify() { return true; }
   };
 
   template<>
@@ -940,10 +904,7 @@ namespace Rice::detail {
   template<>
   struct Type<numo::DComplex>
   {
-    static bool verify()
-    {
-      return true;
-    }
+    static bool verify() { return true; }
   };
 
   template<>
@@ -981,10 +942,7 @@ namespace Rice::detail {
   template<>
   struct Type<numo::Bit>
   {
-    static bool verify()
-    {
-      return true;
-    }
+    static bool verify() { return true; }
   };
 
   template<>
@@ -1022,10 +980,7 @@ namespace Rice::detail {
   template<>
   struct Type<numo::RObject>
   {
-    static bool verify()
-    {
-      return true;
-    }
+    static bool verify() { return true; }
   };
 
   template<>
