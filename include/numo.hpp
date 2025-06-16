@@ -444,23 +444,20 @@ private:
   }
 };
 
-}
+} // namespace numo
 
 namespace Rice::detail {
 
 template<>
-struct Type<numo::NArray>
-{
+struct Type<numo::NArray> {
   static bool verify() { return true; }
 };
 
 template<>
-class From_Ruby<numo::NArray>
-{
+class From_Ruby<numo::NArray> {
 public:
   Convertible is_convertible(VALUE value) {
-    switch (rb_type(value))
-    {
+    switch (rb_type(value)) {
       case RUBY_T_DATA:
         return Data_Type<numo::NArray>::is_descendant(value) ? Convertible::Exact : Convertible::None;
       case RUBY_T_ARRAY:
@@ -476,8 +473,7 @@ public:
 };
 
 template<>
-class To_Ruby<numo::NArray>
-{
+class To_Ruby<numo::NArray> {
 public:
   VALUE convert(const numo::NArray& x) {
     return x.value();
@@ -485,18 +481,15 @@ public:
 };
 
 template<>
-struct Type<numo::SFloat>
-{
+struct Type<numo::SFloat> {
   static bool verify() { return true; }
 };
 
 template<>
-class From_Ruby<numo::SFloat>
-{
+class From_Ruby<numo::SFloat> {
 public:
   Convertible is_convertible(VALUE value) {
-    switch (rb_type(value))
-    {
+    switch (rb_type(value)) {
       case RUBY_T_DATA:
         return Data_Type<numo::SFloat>::is_descendant(value) ? Convertible::Exact : Convertible::None;
       case RUBY_T_ARRAY:
@@ -512,8 +505,7 @@ public:
 };
 
 template<>
-class To_Ruby<numo::SFloat>
-{
+class To_Ruby<numo::SFloat> {
 public:
   VALUE convert(const numo::SFloat& x) {
     return x.value();
@@ -521,18 +513,15 @@ public:
 };
 
 template<>
-struct Type<numo::DFloat>
-{
+struct Type<numo::DFloat> {
   static bool verify() { return true; }
 };
 
 template<>
-class From_Ruby<numo::DFloat>
-{
+class From_Ruby<numo::DFloat> {
 public:
   Convertible is_convertible(VALUE value) {
-    switch (rb_type(value))
-    {
+    switch (rb_type(value)) {
       case RUBY_T_DATA:
         return Data_Type<numo::DFloat>::is_descendant(value) ? Convertible::Exact : Convertible::None;
       case RUBY_T_ARRAY:
@@ -548,8 +537,7 @@ public:
 };
 
 template<>
-class To_Ruby<numo::DFloat>
-{
+class To_Ruby<numo::DFloat> {
 public:
   VALUE convert(const numo::DFloat& x) {
     return x.value();
@@ -557,18 +545,15 @@ public:
 };
 
 template<>
-struct Type<numo::Int8>
-{
+struct Type<numo::Int8> {
   static bool verify() { return true; }
 };
 
 template<>
-class From_Ruby<numo::Int8>
-{
+class From_Ruby<numo::Int8> {
 public:
   Convertible is_convertible(VALUE value) {
-    switch (rb_type(value))
-    {
+    switch (rb_type(value)) {
       case RUBY_T_DATA:
         return Data_Type<numo::Int8>::is_descendant(value) ? Convertible::Exact : Convertible::None;
       case RUBY_T_ARRAY:
@@ -584,8 +569,7 @@ public:
 };
 
 template<>
-class To_Ruby<numo::Int8>
-{
+class To_Ruby<numo::Int8> {
 public:
   VALUE convert(const numo::Int8& x) {
     return x.value();
@@ -593,18 +577,15 @@ public:
 };
 
 template<>
-struct Type<numo::Int16>
-{
+struct Type<numo::Int16> {
   static bool verify() { return true; }
 };
 
 template<>
-class From_Ruby<numo::Int16>
-{
+class From_Ruby<numo::Int16> {
 public:
   Convertible is_convertible(VALUE value) {
-    switch (rb_type(value))
-    {
+    switch (rb_type(value)) {
       case RUBY_T_DATA:
         return Data_Type<numo::Int16>::is_descendant(value) ? Convertible::Exact : Convertible::None;
       case RUBY_T_ARRAY:
@@ -620,8 +601,7 @@ public:
 };
 
 template<>
-class To_Ruby<numo::Int16>
-{
+class To_Ruby<numo::Int16> {
 public:
   VALUE convert(const numo::Int16& x) {
     return x.value();
@@ -629,18 +609,15 @@ public:
 };
 
 template<>
-struct Type<numo::Int32>
-{
+struct Type<numo::Int32> {
   static bool verify() { return true; }
 };
 
 template<>
-class From_Ruby<numo::Int32>
-{
+class From_Ruby<numo::Int32> {
 public:
   Convertible is_convertible(VALUE value) {
-    switch (rb_type(value))
-    {
+    switch (rb_type(value)) {
       case RUBY_T_DATA:
         return Data_Type<numo::Int32>::is_descendant(value) ? Convertible::Exact : Convertible::None;
       case RUBY_T_ARRAY:
@@ -656,8 +633,7 @@ public:
 };
 
 template<>
-class To_Ruby<numo::Int32>
-{
+class To_Ruby<numo::Int32> {
 public:
   VALUE convert(const numo::Int32& x) {
     return x.value();
@@ -665,18 +641,15 @@ public:
 };
 
 template<>
-struct Type<numo::Int64>
-{
+struct Type<numo::Int64> {
   static bool verify() { return true; }
 };
 
 template<>
-class From_Ruby<numo::Int64>
-{
+class From_Ruby<numo::Int64> {
 public:
   Convertible is_convertible(VALUE value) {
-    switch (rb_type(value))
-    {
+    switch (rb_type(value)) {
       case RUBY_T_DATA:
         return Data_Type<numo::Int64>::is_descendant(value) ? Convertible::Exact : Convertible::None;
       case RUBY_T_ARRAY:
@@ -692,8 +665,7 @@ public:
 };
 
 template<>
-class To_Ruby<numo::Int64>
-{
+class To_Ruby<numo::Int64> {
 public:
   VALUE convert(const numo::Int64& x) {
     return x.value();
@@ -701,18 +673,15 @@ public:
 };
 
 template<>
-struct Type<numo::UInt8>
-{
+struct Type<numo::UInt8> {
   static bool verify() { return true; }
 };
 
 template<>
-class From_Ruby<numo::UInt8>
-{
+class From_Ruby<numo::UInt8> {
 public:
   Convertible is_convertible(VALUE value) {
-    switch (rb_type(value))
-    {
+    switch (rb_type(value)) {
       case RUBY_T_DATA:
         return Data_Type<numo::UInt8>::is_descendant(value) ? Convertible::Exact : Convertible::None;
       case RUBY_T_ARRAY:
@@ -728,8 +697,7 @@ public:
 };
 
 template<>
-class To_Ruby<numo::UInt8>
-{
+class To_Ruby<numo::UInt8> {
 public:
   VALUE convert(const numo::UInt8& x) {
     return x.value();
@@ -737,18 +705,15 @@ public:
 };
 
 template<>
-struct Type<numo::UInt16>
-{
+struct Type<numo::UInt16> {
   static bool verify() { return true; }
 };
 
 template<>
-class From_Ruby<numo::UInt16>
-{
+class From_Ruby<numo::UInt16> {
 public:
   Convertible is_convertible(VALUE value) {
-    switch (rb_type(value))
-    {
+    switch (rb_type(value)) {
       case RUBY_T_DATA:
         return Data_Type<numo::UInt16>::is_descendant(value) ? Convertible::Exact : Convertible::None;
       case RUBY_T_ARRAY:
@@ -764,8 +729,7 @@ public:
 };
 
 template<>
-class To_Ruby<numo::UInt16>
-{
+class To_Ruby<numo::UInt16> {
 public:
   VALUE convert(const numo::UInt16& x) {
     return x.value();
@@ -773,18 +737,15 @@ public:
 };
 
 template<>
-struct Type<numo::UInt32>
-{
+struct Type<numo::UInt32> {
   static bool verify() { return true; }
 };
 
 template<>
-class From_Ruby<numo::UInt32>
-{
+class From_Ruby<numo::UInt32> {
 public:
   Convertible is_convertible(VALUE value) {
-    switch (rb_type(value))
-    {
+    switch (rb_type(value)) {
       case RUBY_T_DATA:
         return Data_Type<numo::UInt32>::is_descendant(value) ? Convertible::Exact : Convertible::None;
       case RUBY_T_ARRAY:
@@ -800,8 +761,7 @@ public:
 };
 
 template<>
-class To_Ruby<numo::UInt32>
-{
+class To_Ruby<numo::UInt32> {
 public:
   VALUE convert(const numo::UInt32& x) {
     return x.value();
@@ -809,18 +769,15 @@ public:
 };
 
 template<>
-struct Type<numo::UInt64>
-{
+struct Type<numo::UInt64> {
   static bool verify() { return true; }
 };
 
 template<>
-class From_Ruby<numo::UInt64>
-{
+class From_Ruby<numo::UInt64> {
 public:
   Convertible is_convertible(VALUE value) {
-    switch (rb_type(value))
-    {
+    switch (rb_type(value)) {
       case RUBY_T_DATA:
         return Data_Type<numo::UInt64>::is_descendant(value) ? Convertible::Exact : Convertible::None;
       case RUBY_T_ARRAY:
@@ -836,8 +793,7 @@ public:
 };
 
 template<>
-class To_Ruby<numo::UInt64>
-{
+class To_Ruby<numo::UInt64> {
 public:
   VALUE convert(const numo::UInt64& x) {
     return x.value();
@@ -845,18 +801,15 @@ public:
 };
 
 template<>
-struct Type<numo::SComplex>
-{
+struct Type<numo::SComplex> {
   static bool verify() { return true; }
 };
 
 template<>
-class From_Ruby<numo::SComplex>
-{
+class From_Ruby<numo::SComplex> {
 public:
   Convertible is_convertible(VALUE value) {
-    switch (rb_type(value))
-    {
+    switch (rb_type(value)) {
       case RUBY_T_DATA:
         return Data_Type<numo::SComplex>::is_descendant(value) ? Convertible::Exact : Convertible::None;
       case RUBY_T_ARRAY:
@@ -872,8 +825,7 @@ public:
 };
 
 template<>
-class To_Ruby<numo::SComplex>
-{
+class To_Ruby<numo::SComplex> {
 public:
   VALUE convert(const numo::SComplex& x) {
     return x.value();
@@ -881,18 +833,15 @@ public:
 };
 
 template<>
-struct Type<numo::DComplex>
-{
+struct Type<numo::DComplex> {
   static bool verify() { return true; }
 };
 
 template<>
-class From_Ruby<numo::DComplex>
-{
+class From_Ruby<numo::DComplex> {
 public:
   Convertible is_convertible(VALUE value) {
-    switch (rb_type(value))
-    {
+    switch (rb_type(value)) {
       case RUBY_T_DATA:
         return Data_Type<numo::DComplex>::is_descendant(value) ? Convertible::Exact : Convertible::None;
       case RUBY_T_ARRAY:
@@ -908,8 +857,7 @@ public:
 };
 
 template<>
-class To_Ruby<numo::DComplex>
-{
+class To_Ruby<numo::DComplex> {
 public:
   VALUE convert(const numo::DComplex& x) {
     return x.value();
@@ -917,18 +865,15 @@ public:
 };
 
 template<>
-struct Type<numo::Bit>
-{
+struct Type<numo::Bit> {
   static bool verify() { return true; }
 };
 
 template<>
-class From_Ruby<numo::Bit>
-{
+class From_Ruby<numo::Bit> {
 public:
   Convertible is_convertible(VALUE value) {
-    switch (rb_type(value))
-    {
+    switch (rb_type(value)) {
       case RUBY_T_DATA:
         return Data_Type<numo::Bit>::is_descendant(value) ? Convertible::Exact : Convertible::None;
       case RUBY_T_ARRAY:
@@ -944,8 +889,7 @@ public:
 };
 
 template<>
-class To_Ruby<numo::Bit>
-{
+class To_Ruby<numo::Bit> {
 public:
   VALUE convert(const numo::Bit& x) {
     return x.value();
@@ -953,18 +897,15 @@ public:
 };
 
 template<>
-struct Type<numo::RObject>
-{
+struct Type<numo::RObject> {
   static bool verify() { return true; }
 };
 
 template<>
-class From_Ruby<numo::RObject>
-{
+class From_Ruby<numo::RObject> {
 public:
   Convertible is_convertible(VALUE value) {
-    switch (rb_type(value))
-    {
+    switch (rb_type(value)) {
       case RUBY_T_DATA:
         return Data_Type<numo::RObject>::is_descendant(value) ? Convertible::Exact : Convertible::None;
       case RUBY_T_ARRAY:
@@ -980,12 +921,11 @@ public:
 };
 
 template<>
-class To_Ruby<numo::RObject>
-{
+class To_Ruby<numo::RObject> {
 public:
   VALUE convert(const numo::RObject& x) {
     return x.value();
   }
 };
 
-}
+} // namespace Rice::detail
