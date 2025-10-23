@@ -456,6 +456,10 @@ struct Type<numo::NArray> {
 template<>
 class From_Ruby<numo::NArray> {
 public:
+  From_Ruby() = default;
+
+  explicit From_Ruby(Arg* arg) : arg_(arg) { }
+
   Convertible is_convertible(VALUE value) {
     switch (rb_type(value)) {
       case RUBY_T_DATA:
@@ -470,14 +474,24 @@ public:
   numo::NArray convert(VALUE x) {
     return numo::NArray(x);
   }
+
+private:
+  Arg* arg_ = nullptr;
 };
 
 template<>
 class To_Ruby<numo::NArray> {
 public:
+  To_Ruby() = default;
+
+  explicit To_Ruby(Arg* arg) : arg_(arg) { }
+
   VALUE convert(const numo::NArray& x) {
     return x.value();
   }
+
+private:
+  Arg* arg_ = nullptr;
 };
 
 template<>
@@ -488,6 +502,10 @@ struct Type<numo::SFloat> {
 template<>
 class From_Ruby<numo::SFloat> {
 public:
+  From_Ruby() = default;
+
+  explicit From_Ruby(Arg* arg) : arg_(arg) { }
+
   Convertible is_convertible(VALUE value) {
     switch (rb_type(value)) {
       case RUBY_T_DATA:
@@ -502,14 +520,24 @@ public:
   numo::SFloat convert(VALUE x) {
     return numo::SFloat(x);
   }
+
+private:
+  Arg* arg_ = nullptr;
 };
 
 template<>
 class To_Ruby<numo::SFloat> {
 public:
+  To_Ruby() = default;
+
+  explicit To_Ruby(Arg* arg) : arg_(arg) { }
+
   VALUE convert(const numo::SFloat& x) {
     return x.value();
   }
+
+private:
+  Arg* arg_ = nullptr;
 };
 
 template<>
@@ -520,6 +548,10 @@ struct Type<numo::DFloat> {
 template<>
 class From_Ruby<numo::DFloat> {
 public:
+  From_Ruby() = default;
+
+  explicit From_Ruby(Arg* arg) : arg_(arg) { }
+
   Convertible is_convertible(VALUE value) {
     switch (rb_type(value)) {
       case RUBY_T_DATA:
@@ -534,14 +566,24 @@ public:
   numo::DFloat convert(VALUE x) {
     return numo::DFloat(x);
   }
+
+private:
+  Arg* arg_ = nullptr;
 };
 
 template<>
 class To_Ruby<numo::DFloat> {
 public:
+  To_Ruby() = default;
+
+  explicit To_Ruby(Arg* arg) : arg_(arg) { }
+
   VALUE convert(const numo::DFloat& x) {
     return x.value();
   }
+
+private:
+  Arg* arg_ = nullptr;
 };
 
 template<>
@@ -552,6 +594,10 @@ struct Type<numo::Int8> {
 template<>
 class From_Ruby<numo::Int8> {
 public:
+  From_Ruby() = default;
+
+  explicit From_Ruby(Arg* arg) : arg_(arg) { }
+
   Convertible is_convertible(VALUE value) {
     switch (rb_type(value)) {
       case RUBY_T_DATA:
@@ -566,14 +612,24 @@ public:
   numo::Int8 convert(VALUE x) {
     return numo::Int8(x);
   }
+
+private:
+  Arg* arg_ = nullptr;
 };
 
 template<>
 class To_Ruby<numo::Int8> {
 public:
+  To_Ruby() = default;
+
+  explicit To_Ruby(Arg* arg) : arg_(arg) { }
+
   VALUE convert(const numo::Int8& x) {
     return x.value();
   }
+
+private:
+  Arg* arg_ = nullptr;
 };
 
 template<>
@@ -584,6 +640,10 @@ struct Type<numo::Int16> {
 template<>
 class From_Ruby<numo::Int16> {
 public:
+  From_Ruby() = default;
+
+  explicit From_Ruby(Arg* arg) : arg_(arg) { }
+
   Convertible is_convertible(VALUE value) {
     switch (rb_type(value)) {
       case RUBY_T_DATA:
@@ -598,14 +658,24 @@ public:
   numo::Int16 convert(VALUE x) {
     return numo::Int16(x);
   }
+
+private:
+  Arg* arg_ = nullptr;
 };
 
 template<>
 class To_Ruby<numo::Int16> {
 public:
+  To_Ruby() = default;
+
+  explicit To_Ruby(Arg* arg) : arg_(arg) { }
+
   VALUE convert(const numo::Int16& x) {
     return x.value();
   }
+
+private:
+  Arg* arg_ = nullptr;
 };
 
 template<>
@@ -616,6 +686,10 @@ struct Type<numo::Int32> {
 template<>
 class From_Ruby<numo::Int32> {
 public:
+  From_Ruby() = default;
+
+  explicit From_Ruby(Arg* arg) : arg_(arg) { }
+
   Convertible is_convertible(VALUE value) {
     switch (rb_type(value)) {
       case RUBY_T_DATA:
@@ -630,14 +704,24 @@ public:
   numo::Int32 convert(VALUE x) {
     return numo::Int32(x);
   }
+
+private:
+  Arg* arg_ = nullptr;
 };
 
 template<>
 class To_Ruby<numo::Int32> {
 public:
+  To_Ruby() = default;
+
+  explicit To_Ruby(Arg* arg) : arg_(arg) { }
+
   VALUE convert(const numo::Int32& x) {
     return x.value();
   }
+
+private:
+  Arg* arg_ = nullptr;
 };
 
 template<>
@@ -648,6 +732,10 @@ struct Type<numo::Int64> {
 template<>
 class From_Ruby<numo::Int64> {
 public:
+  From_Ruby() = default;
+
+  explicit From_Ruby(Arg* arg) : arg_(arg) { }
+
   Convertible is_convertible(VALUE value) {
     switch (rb_type(value)) {
       case RUBY_T_DATA:
@@ -662,14 +750,24 @@ public:
   numo::Int64 convert(VALUE x) {
     return numo::Int64(x);
   }
+
+private:
+  Arg* arg_ = nullptr;
 };
 
 template<>
 class To_Ruby<numo::Int64> {
 public:
+  To_Ruby() = default;
+
+  explicit To_Ruby(Arg* arg) : arg_(arg) { }
+
   VALUE convert(const numo::Int64& x) {
     return x.value();
   }
+
+private:
+  Arg* arg_ = nullptr;
 };
 
 template<>
@@ -680,6 +778,10 @@ struct Type<numo::UInt8> {
 template<>
 class From_Ruby<numo::UInt8> {
 public:
+  From_Ruby() = default;
+
+  explicit From_Ruby(Arg* arg) : arg_(arg) { }
+
   Convertible is_convertible(VALUE value) {
     switch (rb_type(value)) {
       case RUBY_T_DATA:
@@ -694,14 +796,24 @@ public:
   numo::UInt8 convert(VALUE x) {
     return numo::UInt8(x);
   }
+
+private:
+  Arg* arg_ = nullptr;
 };
 
 template<>
 class To_Ruby<numo::UInt8> {
 public:
+  To_Ruby() = default;
+
+  explicit To_Ruby(Arg* arg) : arg_(arg) { }
+
   VALUE convert(const numo::UInt8& x) {
     return x.value();
   }
+
+private:
+  Arg* arg_ = nullptr;
 };
 
 template<>
@@ -712,6 +824,10 @@ struct Type<numo::UInt16> {
 template<>
 class From_Ruby<numo::UInt16> {
 public:
+  From_Ruby() = default;
+
+  explicit From_Ruby(Arg* arg) : arg_(arg) { }
+
   Convertible is_convertible(VALUE value) {
     switch (rb_type(value)) {
       case RUBY_T_DATA:
@@ -726,14 +842,24 @@ public:
   numo::UInt16 convert(VALUE x) {
     return numo::UInt16(x);
   }
+
+private:
+  Arg* arg_ = nullptr;
 };
 
 template<>
 class To_Ruby<numo::UInt16> {
 public:
+  To_Ruby() = default;
+
+  explicit To_Ruby(Arg* arg) : arg_(arg) { }
+
   VALUE convert(const numo::UInt16& x) {
     return x.value();
   }
+
+private:
+  Arg* arg_ = nullptr;
 };
 
 template<>
@@ -744,6 +870,10 @@ struct Type<numo::UInt32> {
 template<>
 class From_Ruby<numo::UInt32> {
 public:
+  From_Ruby() = default;
+
+  explicit From_Ruby(Arg* arg) : arg_(arg) { }
+
   Convertible is_convertible(VALUE value) {
     switch (rb_type(value)) {
       case RUBY_T_DATA:
@@ -758,14 +888,24 @@ public:
   numo::UInt32 convert(VALUE x) {
     return numo::UInt32(x);
   }
+
+private:
+  Arg* arg_ = nullptr;
 };
 
 template<>
 class To_Ruby<numo::UInt32> {
 public:
+  To_Ruby() = default;
+
+  explicit To_Ruby(Arg* arg) : arg_(arg) { }
+
   VALUE convert(const numo::UInt32& x) {
     return x.value();
   }
+
+private:
+  Arg* arg_ = nullptr;
 };
 
 template<>
@@ -776,6 +916,10 @@ struct Type<numo::UInt64> {
 template<>
 class From_Ruby<numo::UInt64> {
 public:
+  From_Ruby() = default;
+
+  explicit From_Ruby(Arg* arg) : arg_(arg) { }
+
   Convertible is_convertible(VALUE value) {
     switch (rb_type(value)) {
       case RUBY_T_DATA:
@@ -790,14 +934,24 @@ public:
   numo::UInt64 convert(VALUE x) {
     return numo::UInt64(x);
   }
+
+private:
+  Arg* arg_ = nullptr;
 };
 
 template<>
 class To_Ruby<numo::UInt64> {
 public:
+  To_Ruby() = default;
+
+  explicit To_Ruby(Arg* arg) : arg_(arg) { }
+
   VALUE convert(const numo::UInt64& x) {
     return x.value();
   }
+
+private:
+  Arg* arg_ = nullptr;
 };
 
 template<>
@@ -808,6 +962,10 @@ struct Type<numo::SComplex> {
 template<>
 class From_Ruby<numo::SComplex> {
 public:
+  From_Ruby() = default;
+
+  explicit From_Ruby(Arg* arg) : arg_(arg) { }
+
   Convertible is_convertible(VALUE value) {
     switch (rb_type(value)) {
       case RUBY_T_DATA:
@@ -822,14 +980,24 @@ public:
   numo::SComplex convert(VALUE x) {
     return numo::SComplex(x);
   }
+
+private:
+  Arg* arg_ = nullptr;
 };
 
 template<>
 class To_Ruby<numo::SComplex> {
 public:
+  To_Ruby() = default;
+
+  explicit To_Ruby(Arg* arg) : arg_(arg) { }
+
   VALUE convert(const numo::SComplex& x) {
     return x.value();
   }
+
+private:
+  Arg* arg_ = nullptr;
 };
 
 template<>
@@ -840,6 +1008,10 @@ struct Type<numo::DComplex> {
 template<>
 class From_Ruby<numo::DComplex> {
 public:
+  From_Ruby() = default;
+
+  explicit From_Ruby(Arg* arg) : arg_(arg) { }
+
   Convertible is_convertible(VALUE value) {
     switch (rb_type(value)) {
       case RUBY_T_DATA:
@@ -854,14 +1026,24 @@ public:
   numo::DComplex convert(VALUE x) {
     return numo::DComplex(x);
   }
+
+private:
+  Arg* arg_ = nullptr;
 };
 
 template<>
 class To_Ruby<numo::DComplex> {
 public:
+  To_Ruby() = default;
+
+  explicit To_Ruby(Arg* arg) : arg_(arg) { }
+
   VALUE convert(const numo::DComplex& x) {
     return x.value();
   }
+
+private:
+  Arg* arg_ = nullptr;
 };
 
 template<>
@@ -872,6 +1054,10 @@ struct Type<numo::Bit> {
 template<>
 class From_Ruby<numo::Bit> {
 public:
+  From_Ruby() = default;
+
+  explicit From_Ruby(Arg* arg) : arg_(arg) { }
+
   Convertible is_convertible(VALUE value) {
     switch (rb_type(value)) {
       case RUBY_T_DATA:
@@ -886,14 +1072,24 @@ public:
   numo::Bit convert(VALUE x) {
     return numo::Bit(x);
   }
+
+private:
+  Arg* arg_ = nullptr;
 };
 
 template<>
 class To_Ruby<numo::Bit> {
 public:
+  To_Ruby() = default;
+
+  explicit To_Ruby(Arg* arg) : arg_(arg) { }
+
   VALUE convert(const numo::Bit& x) {
     return x.value();
   }
+
+private:
+  Arg* arg_ = nullptr;
 };
 
 template<>
@@ -904,6 +1100,10 @@ struct Type<numo::RObject> {
 template<>
 class From_Ruby<numo::RObject> {
 public:
+  From_Ruby() = default;
+
+  explicit From_Ruby(Arg* arg) : arg_(arg) { }
+
   Convertible is_convertible(VALUE value) {
     switch (rb_type(value)) {
       case RUBY_T_DATA:
@@ -918,14 +1118,24 @@ public:
   numo::RObject convert(VALUE x) {
     return numo::RObject(x);
   }
+
+private:
+  Arg* arg_ = nullptr;
 };
 
 template<>
 class To_Ruby<numo::RObject> {
 public:
+  To_Ruby() = default;
+
+  explicit To_Ruby(Arg* arg) : arg_(arg) { }
+
   VALUE convert(const numo::RObject& x) {
     return x.value();
   }
+
+private:
+  Arg* arg_ = nullptr;
 };
 
 } // namespace Rice::detail

@@ -38,7 +38,7 @@ void Init_hello() {
         auto ptr = a.read_ptr();
         Rice::Array b;
         for (size_t i = 0; i < a.size(); i++) {
-          b.push(ptr[i]);
+          b.push(ptr[i], false);
         }
         return b;
       })
