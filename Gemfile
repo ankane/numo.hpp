@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gem "rake"
 gem "rake-compiler"
-gem "minitest", ">= 5"
+gem "minitest"
 gem "rice", ">= 4.5"
 
 # TODO remove when numo-narray > 0.9.2.1 is released
