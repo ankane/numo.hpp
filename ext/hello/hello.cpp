@@ -38,7 +38,11 @@ void Init_hello() {
         auto ptr = a.read_ptr();
         Rice::Array b;
         for (size_t i = 0; i < a.size(); i++) {
+#if !defined(RICE_VERSION_MAJOR) || (RICE_VERSION_MAJOR == 4 && RICE_VERSION_MINOR < 7)
+          b.push(ptr[i]);
+#else
           b.push(ptr[i], false);
+#endif
         }
         return b;
       })
