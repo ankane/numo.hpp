@@ -1,4 +1,4 @@
-## 0.2.1 (unrelased)
+## 0.2.1 (unreleased)
 
 - Added support for Rice 4.7
 
