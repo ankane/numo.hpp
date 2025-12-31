@@ -1,3 +1,8 @@
+## 0.3.0 (unreleased)
+
+- Added support for Rice 4.8
+- Dropped support for Rice < 4.8
+
 ## 0.2.1 (2025-10-26)
 
 - Added support for Rice 4.7
