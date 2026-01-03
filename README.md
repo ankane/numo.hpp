@@ -6,7 +6,7 @@ C++ header for [Numo](https://github.com/ruby-numo/numo-narray) and [Rice](https
 
 ## Installation
 
-Copy [numo.hpp](https://raw.githubusercontent.com/ankane/numo.hpp/v0.2.1/include/numo.hpp) into your project and add the following lines to `extconf.rb`:
+Copy [numo.hpp](https://raw.githubusercontent.com/ankane/numo.hpp/v0.3.0/include/numo.hpp) into your project and add the following lines to `extconf.rb`:
 
 ```ruby
 require "numo/narray"
