@@ -1,6 +1,6 @@
 ## 0.3.1 (unreleased)
 
-- Fixed memory leak on exceptions
+- Fixed memory leak with cast exceptions
 
 ## 0.3.0 (2026-01-02)
 
