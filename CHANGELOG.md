@@ -1,3 +1,7 @@
+## 0.3.1 (unreleased)
+
+- Fixed memory leak on exceptions
+
 ## 0.3.0 (2026-01-02)
 
 - Added support for Rice 4.8

@@ -7,9 +7,6 @@ class CastTest < Minitest::Test
   end
 
   def test_cast_error
-    # https://github.com/ruby-rice/rice/issues/386
-    skip if valgrind?
-
     assert_raises(Numo::NArray::CastError) do
       Hello.cast("bad")
     end
