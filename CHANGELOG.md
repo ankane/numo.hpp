@@ -1,4 +1,4 @@
-## 0.3.1 (unreleased)
+## 0.3.1 (2026-02-12)
 
 - Fixed memory leak with cast exceptions
 
