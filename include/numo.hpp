@@ -46,10 +46,12 @@ public:
   }
 
   const void* read_ptr() {
-    if (!is_contiguous()) {
-      this->_value = Rice::detail::protect(nary_dup, this->_value);
-    }
-    return Rice::detail::protect(nary_get_pointer_for_read, this->_value) + Rice::detail::protect(nary_get_offset, this->_value);
+    return Rice::detail::protect([&]() {
+      if (!nary_check_contiguous(this->_value)) {
+        this->_value = nary_dup(this->_value);
+      }
+      return nary_get_pointer_for_read(this->_value) + nary_get_offset(this->_value);
+    });
   }
 
   void* write_ptr() {
