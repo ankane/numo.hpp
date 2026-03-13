@@ -8,4 +8,6 @@ $LDFLAGS += " -Wl,-undefined,dynamic_lookup" if RbConfig::CONFIG["host_os"] =~ /
 
 find_header("numo.hpp", File.expand_path("../../include", __dir__))
 
+$CXXFLAGS += " -Wall -Wextra -Wpedantic -Wconversion -Wno-unused-parameter -Wno-implicit-fallthrough -Werror"
+
 create_makefile("hello")
