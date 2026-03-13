@@ -35,7 +35,7 @@ void Init_hello() {
     .define_singleton_function(
       "read_ptr",
       [](numo::Int64 a) {
-        auto* ptr = a.read_ptr();
+        const auto* ptr = a.read_ptr();
         Rice::Array b;
         for (size_t i = 0; i < a.size(); i++) {
 #if !defined(RICE_VERSION_MAJOR) || (RICE_VERSION_MAJOR == 4 && RICE_VERSION_MINOR < 7)
@@ -51,7 +51,7 @@ void Init_hello() {
       [](numo::Int64 a) {
         auto* ptr = a.write_ptr();
         for (size_t i = 0; i < a.size(); i++) {
-          ptr[i] = i + 1;
+          ptr[i] = static_cast<int64_t>(i + 1);
         }
       })
     .define_singleton_function(
