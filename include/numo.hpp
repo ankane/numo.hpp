@@ -93,11 +93,11 @@ public:
   }
 
   const float* read_ptr() {
-    return reinterpret_cast<const float*>(NArray::read_ptr());
+    return static_cast<const float*>(NArray::read_ptr());
   }
 
   float* write_ptr() {
-    return reinterpret_cast<float*>(NArray::write_ptr());
+    return static_cast<float*>(NArray::write_ptr());
   }
 
 private:
@@ -121,11 +121,11 @@ public:
   }
 
   const double* read_ptr() {
-    return reinterpret_cast<const double*>(NArray::read_ptr());
+    return static_cast<const double*>(NArray::read_ptr());
   }
 
   double* write_ptr() {
-    return reinterpret_cast<double*>(NArray::write_ptr());
+    return static_cast<double*>(NArray::write_ptr());
   }
 
 private:
@@ -149,11 +149,11 @@ public:
   }
 
   const int8_t* read_ptr() {
-    return reinterpret_cast<const int8_t*>(NArray::read_ptr());
+    return static_cast<const int8_t*>(NArray::read_ptr());
   }
 
   int8_t* write_ptr() {
-    return reinterpret_cast<int8_t*>(NArray::write_ptr());
+    return static_cast<int8_t*>(NArray::write_ptr());
   }
 
 private:
@@ -177,11 +177,11 @@ public:
   }
 
   const int16_t* read_ptr() {
-    return reinterpret_cast<const int16_t*>(NArray::read_ptr());
+    return static_cast<const int16_t*>(NArray::read_ptr());
   }
 
   int16_t* write_ptr() {
-    return reinterpret_cast<int16_t*>(NArray::write_ptr());
+    return static_cast<int16_t*>(NArray::write_ptr());
   }
 
 private:
@@ -205,11 +205,11 @@ public:
   }
 
   const int32_t* read_ptr() {
-    return reinterpret_cast<const int32_t*>(NArray::read_ptr());
+    return static_cast<const int32_t*>(NArray::read_ptr());
   }
 
   int32_t* write_ptr() {
-    return reinterpret_cast<int32_t*>(NArray::write_ptr());
+    return static_cast<int32_t*>(NArray::write_ptr());
   }
 
 private:
@@ -233,11 +233,11 @@ public:
   }
 
   const int64_t* read_ptr() {
-    return reinterpret_cast<const int64_t*>(NArray::read_ptr());
+    return static_cast<const int64_t*>(NArray::read_ptr());
   }
 
   int64_t* write_ptr() {
-    return reinterpret_cast<int64_t*>(NArray::write_ptr());
+    return static_cast<int64_t*>(NArray::write_ptr());
   }
 
 private:
@@ -261,11 +261,11 @@ public:
   }
 
   const uint8_t* read_ptr() {
-    return reinterpret_cast<const uint8_t*>(NArray::read_ptr());
+    return static_cast<const uint8_t*>(NArray::read_ptr());
   }
 
   uint8_t* write_ptr() {
-    return reinterpret_cast<uint8_t*>(NArray::write_ptr());
+    return static_cast<uint8_t*>(NArray::write_ptr());
   }
 
 private:
@@ -289,11 +289,11 @@ public:
   }
 
   const uint16_t* read_ptr() {
-    return reinterpret_cast<const uint16_t*>(NArray::read_ptr());
+    return static_cast<const uint16_t*>(NArray::read_ptr());
   }
 
   uint16_t* write_ptr() {
-    return reinterpret_cast<uint16_t*>(NArray::write_ptr());
+    return static_cast<uint16_t*>(NArray::write_ptr());
   }
 
 private:
@@ -317,11 +317,11 @@ public:
   }
 
   const uint32_t* read_ptr() {
-    return reinterpret_cast<const uint32_t*>(NArray::read_ptr());
+    return static_cast<const uint32_t*>(NArray::read_ptr());
   }
 
   uint32_t* write_ptr() {
-    return reinterpret_cast<uint32_t*>(NArray::write_ptr());
+    return static_cast<uint32_t*>(NArray::write_ptr());
   }
 
 private:
@@ -345,11 +345,11 @@ public:
   }
 
   const uint64_t* read_ptr() {
-    return reinterpret_cast<const uint64_t*>(NArray::read_ptr());
+    return static_cast<const uint64_t*>(NArray::read_ptr());
   }
 
   uint64_t* write_ptr() {
-    return reinterpret_cast<uint64_t*>(NArray::write_ptr());
+    return static_cast<uint64_t*>(NArray::write_ptr());
   }
 
 private:
@@ -433,11 +433,11 @@ public:
   }
 
   const VALUE* read_ptr() {
-    return reinterpret_cast<const VALUE*>(NArray::read_ptr());
+    return static_cast<const VALUE*>(NArray::read_ptr());
   }
 
   VALUE* write_ptr() {
-    return reinterpret_cast<VALUE*>(NArray::write_ptr());
+    return static_cast<VALUE*>(NArray::write_ptr());
   }
 
 private:
