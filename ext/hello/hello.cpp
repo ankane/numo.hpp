@@ -35,7 +35,7 @@ void Init_hello() {
     .define_singleton_function(
       "read_ptr",
       [](numo::Int64 a) {
-        auto ptr = a.read_ptr();
+        auto* ptr = a.read_ptr();
         Rice::Array b;
         for (size_t i = 0; i < a.size(); i++) {
 #if !defined(RICE_VERSION_MAJOR) || (RICE_VERSION_MAJOR == 4 && RICE_VERSION_MINOR < 7)
@@ -49,7 +49,7 @@ void Init_hello() {
     .define_singleton_function(
       "write_ptr",
       [](numo::Int64 a) {
-        auto ptr = a.write_ptr();
+        auto* ptr = a.write_ptr();
         for (size_t i = 0; i < a.size(); i++) {
           ptr[i] = i + 1;
         }
@@ -58,7 +58,7 @@ void Init_hello() {
       "write_ptr_new",
       []() {
         auto a = numo::Int64({3});
-        auto ptr = a.write_ptr();
+        auto* ptr = a.write_ptr();
         ptr[0] = 1;
         ptr[1] = 2;
         ptr[2] = 3;
@@ -68,7 +68,7 @@ void Init_hello() {
       "write_ptr_robject",
       []() {
         auto a = numo::RObject({3});
-        auto ptr = a.write_ptr();
+        auto* ptr = a.write_ptr();
         ptr[0] = INT2NUM(1);
         ptr[1] = INT2NUM(2);
         ptr[2] = INT2NUM(3);

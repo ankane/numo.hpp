@@ -40,7 +40,7 @@ auto a = numo::Int64({3, 5});
 And use a pointer to write to it
 
 ```cpp
-auto ptr = a.write_ptr();
+auto* ptr = a.write_ptr();
 ptr[0] = 4;
 ptr[1] = 3;
 ```
