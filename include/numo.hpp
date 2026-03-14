@@ -69,7 +69,7 @@ protected:
   VALUE _value;
 
 private:
-  VALUE dtype() {
+  static VALUE dtype() {
     return numo_cNArray;
   }
 };
@@ -91,7 +91,7 @@ public:
   }
 
 private:
-  VALUE dtype() {
+  static VALUE dtype() {
     return numo_cSFloat;
   }
 };
@@ -113,7 +113,7 @@ public:
   }
 
 private:
-  VALUE dtype() {
+  static VALUE dtype() {
     return numo_cDFloat;
   }
 };
@@ -135,7 +135,7 @@ public:
   }
 
 private:
-  VALUE dtype() {
+  static VALUE dtype() {
     return numo_cInt8;
   }
 };
@@ -157,7 +157,7 @@ public:
   }
 
 private:
-  VALUE dtype() {
+  static VALUE dtype() {
     return numo_cInt16;
   }
 };
@@ -179,7 +179,7 @@ public:
   }
 
 private:
-  VALUE dtype() {
+  static VALUE dtype() {
     return numo_cInt32;
   }
 };
@@ -201,7 +201,7 @@ public:
   }
 
 private:
-  VALUE dtype() {
+  static VALUE dtype() {
     return numo_cInt64;
   }
 };
@@ -223,7 +223,7 @@ public:
   }
 
 private:
-  VALUE dtype() {
+  static VALUE dtype() {
     return numo_cUInt8;
   }
 };
@@ -245,7 +245,7 @@ public:
   }
 
 private:
-  VALUE dtype() {
+  static VALUE dtype() {
     return numo_cUInt16;
   }
 };
@@ -267,7 +267,7 @@ public:
   }
 
 private:
-  VALUE dtype() {
+  static VALUE dtype() {
     return numo_cUInt32;
   }
 };
@@ -289,7 +289,7 @@ public:
   }
 
 private:
-  VALUE dtype() {
+  static VALUE dtype() {
     return numo_cUInt64;
   }
 };
@@ -303,7 +303,7 @@ public:
   SComplex(std::initializer_list<size_t> shape) : NArray(dtype(), shape) { }
 
 private:
-  VALUE dtype() {
+  static VALUE dtype() {
     return numo_cSComplex;
   }
 };
@@ -317,7 +317,7 @@ public:
   DComplex(std::initializer_list<size_t> shape) : NArray(dtype(), shape) { }
 
 private:
-  VALUE dtype() {
+  static VALUE dtype() {
     return numo_cDComplex;
   }
 };
@@ -331,7 +331,7 @@ public:
   Bit(std::initializer_list<size_t> shape) : NArray(dtype(), shape) { }
 
 private:
-  VALUE dtype() {
+  static VALUE dtype() {
     return numo_cBit;
   }
 };
@@ -353,7 +353,7 @@ public:
   }
 
 private:
-  VALUE dtype() {
+  static VALUE dtype() {
     return numo_cRObject;
   }
 };
