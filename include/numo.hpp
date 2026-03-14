@@ -11,6 +11,7 @@
 #include <initializer_list>
 
 #include <rice/rice.hpp>
+
 #include <numo/narray.h>
 
 namespace numo {
