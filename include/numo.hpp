@@ -8,6 +8,7 @@
 
 #include <cstddef>
 #include <cstdint>
+#include <initializer_list>
 
 #include <rice/rice.hpp>
 #include <numo/narray.h>
