@@ -6,6 +6,8 @@
 
 #pragma once
 
+#include <cstddef>
+
 #include <rice/rice.hpp>
 #include <numo/narray.h>
 
