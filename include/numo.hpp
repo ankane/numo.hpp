@@ -42,7 +42,7 @@ public:
   }
 
   operator Rice::Object() const {
-    return Rice::Object(this->_value);
+    return Rice::Object{this->_value};
   }
 
   const void* read_ptr() {
@@ -59,7 +59,7 @@ public:
   }
 
 protected:
-  NArray() { }
+  NArray() = default;
 
   void construct_value(VALUE dtype, VALUE v) {
     this->_value = Rice::detail::protect(rb_funcall, dtype, rb_intern("cast"), 1, v);

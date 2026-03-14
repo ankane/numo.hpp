@@ -11,22 +11,22 @@ void Init_hello() {
     .define_singleton_function("value", [](Rice::Object o) { return numo::Int64(o.value()); })
     .define_singleton_function("object", [](Rice::Object o) { return numo::Int64(o); })
     // compile
-    .define_singleton_function("rank1", []() { return numo::SFloat({2}); })
+    .define_singleton_function("rank1", []() { return numo::SFloat{{2}}; })
     .define_singleton_function(
       "rank1_dynamic",
       []() {
         size_t n = 2;
-        return numo::SFloat({n});
+        return numo::SFloat{{n}};
       })
-    .define_singleton_function("rank2", []() { return numo::SFloat({2, 3}); })
+    .define_singleton_function("rank2", []() { return numo::SFloat{{2, 3}}; })
     .define_singleton_function(
       "rank2_dynamic",
       []() {
         size_t n = 2;
-        return numo::SFloat({n, n + 1});
+        return numo::SFloat{{n, n + 1}};
       })
-    .define_singleton_function("rank3", []() { return numo::SFloat({2, 3, 4}); })
-    .define_singleton_function("return_object", []() -> Rice::Object { return numo::SFloat({2, 3}); })
+    .define_singleton_function("rank3", []() { return numo::SFloat{{2, 3, 4}}; })
+    .define_singleton_function("return_object", []() -> Rice::Object { return numo::SFloat{{2, 3}}; })
     .define_singleton_function("convert_object", [](Rice::Object o) { convert(o); })
     // methods
     .define_singleton_function("ndim", [](const numo::NArray a) { return a.ndim(); })
@@ -57,7 +57,7 @@ void Init_hello() {
     .define_singleton_function(
       "write_ptr_new",
       []() {
-        auto a = numo::Int64({3});
+        numo::Int64 a{{3}};
         auto* ptr = a.write_ptr();
         ptr[0] = 1;
         ptr[1] = 2;
@@ -67,7 +67,7 @@ void Init_hello() {
     .define_singleton_function(
       "write_ptr_robject",
       []() {
-        auto a = numo::RObject({3});
+        numo::RObject a{{3}};
         auto* ptr = a.write_ptr();
         ptr[0] = INT2NUM(1);
         ptr[1] = INT2NUM(2);
