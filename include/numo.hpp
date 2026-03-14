@@ -59,16 +59,12 @@ public:
   }
 
 protected:
-  NArray(VALUE dtype, VALUE v) {
-    this->_value = Rice::detail::protect(rb_funcall, dtype, rb_intern("cast"), 1, v);
-  }
+  NArray(VALUE dtype, VALUE v) : _value{Rice::detail::protect(rb_funcall, dtype, rb_intern("cast"), 1, v)} { }
 
   NArray(VALUE dtype, Rice::Object o) : NArray(dtype, o.value()) { }
 
-  NArray(VALUE dtype, std::initializer_list<size_t> shape) {
-    // rb_narray_new doesn't modify shape, but not marked as const
-    this->_value = Rice::detail::protect(rb_narray_new, dtype, shape.size(), const_cast<size_t*>(shape.begin()));
-  }
+  // rb_narray_new doesn't modify shape, but not marked as const
+  NArray(VALUE dtype, std::initializer_list<size_t> shape) : _value{Rice::detail::protect(rb_narray_new, dtype, shape.size(), const_cast<size_t*>(shape.begin()))} { }
 
   VALUE _value;
 
