@@ -84,15 +84,15 @@ private:
 
 class SFloat: public NArray {
 public:
-  SFloat(VALUE v) {
+  SFloat(VALUE v) : NArray() {
     construct_value(this->dtype(), v);
   }
 
-  SFloat(Rice::Object o) {
+  SFloat(Rice::Object o) : NArray() {
     construct_value(this->dtype(), o.value());
   }
 
-  SFloat(std::initializer_list<size_t> shape) {
+  SFloat(std::initializer_list<size_t> shape) : NArray() {
     construct_shape(this->dtype(), shape);
   }
 
@@ -112,15 +112,15 @@ private:
 
 class DFloat: public NArray {
 public:
-  DFloat(VALUE v) {
+  DFloat(VALUE v) : NArray() {
     construct_value(this->dtype(), v);
   }
 
-  DFloat(Rice::Object o) {
+  DFloat(Rice::Object o) : NArray() {
     construct_value(this->dtype(), o.value());
   }
 
-  DFloat(std::initializer_list<size_t> shape) {
+  DFloat(std::initializer_list<size_t> shape) : NArray() {
     construct_shape(this->dtype(), shape);
   }
 
@@ -140,15 +140,15 @@ private:
 
 class Int8: public NArray {
 public:
-  Int8(VALUE v) {
+  Int8(VALUE v) : NArray() {
     construct_value(this->dtype(), v);
   }
 
-  Int8(Rice::Object o) {
+  Int8(Rice::Object o) : NArray() {
     construct_value(this->dtype(), o.value());
   }
 
-  Int8(std::initializer_list<size_t> shape) {
+  Int8(std::initializer_list<size_t> shape) : NArray() {
     construct_shape(this->dtype(), shape);
   }
 
@@ -168,15 +168,15 @@ private:
 
 class Int16: public NArray {
 public:
-  Int16(VALUE v) {
+  Int16(VALUE v) : NArray() {
     construct_value(this->dtype(), v);
   }
 
-  Int16(Rice::Object o) {
+  Int16(Rice::Object o) : NArray() {
     construct_value(this->dtype(), o.value());
   }
 
-  Int16(std::initializer_list<size_t> shape) {
+  Int16(std::initializer_list<size_t> shape) : NArray() {
     construct_shape(this->dtype(), shape);
   }
 
@@ -196,15 +196,15 @@ private:
 
 class Int32: public NArray {
 public:
-  Int32(VALUE v) {
+  Int32(VALUE v) : NArray() {
     construct_value(this->dtype(), v);
   }
 
-  Int32(Rice::Object o) {
+  Int32(Rice::Object o) : NArray() {
     construct_value(this->dtype(), o.value());
   }
 
-  Int32(std::initializer_list<size_t> shape) {
+  Int32(std::initializer_list<size_t> shape) : NArray() {
     construct_shape(this->dtype(), shape);
   }
 
@@ -224,15 +224,15 @@ private:
 
 class Int64: public NArray {
 public:
-  Int64(VALUE v) {
+  Int64(VALUE v) : NArray() {
     construct_value(this->dtype(), v);
   }
 
-  Int64(Rice::Object o) {
+  Int64(Rice::Object o) : NArray() {
     construct_value(this->dtype(), o.value());
   }
 
-  Int64(std::initializer_list<size_t> shape) {
+  Int64(std::initializer_list<size_t> shape) : NArray() {
     construct_shape(this->dtype(), shape);
   }
 
@@ -252,15 +252,15 @@ private:
 
 class UInt8: public NArray {
 public:
-  UInt8(VALUE v) {
+  UInt8(VALUE v) : NArray() {
     construct_value(this->dtype(), v);
   }
 
-  UInt8(Rice::Object o) {
+  UInt8(Rice::Object o) : NArray() {
     construct_value(this->dtype(), o.value());
   }
 
-  UInt8(std::initializer_list<size_t> shape) {
+  UInt8(std::initializer_list<size_t> shape) : NArray() {
     construct_shape(this->dtype(), shape);
   }
 
@@ -280,15 +280,15 @@ private:
 
 class UInt16: public NArray {
 public:
-  UInt16(VALUE v) {
+  UInt16(VALUE v) : NArray() {
     construct_value(this->dtype(), v);
   }
 
-  UInt16(Rice::Object o) {
+  UInt16(Rice::Object o) : NArray() {
     construct_value(this->dtype(), o.value());
   }
 
-  UInt16(std::initializer_list<size_t> shape) {
+  UInt16(std::initializer_list<size_t> shape) : NArray() {
     construct_shape(this->dtype(), shape);
   }
 
@@ -308,15 +308,15 @@ private:
 
 class UInt32: public NArray {
 public:
-  UInt32(VALUE v) {
+  UInt32(VALUE v) : NArray() {
     construct_value(this->dtype(), v);
   }
 
-  UInt32(Rice::Object o) {
+  UInt32(Rice::Object o) : NArray() {
     construct_value(this->dtype(), o.value());
   }
 
-  UInt32(std::initializer_list<size_t> shape) {
+  UInt32(std::initializer_list<size_t> shape) : NArray() {
     construct_shape(this->dtype(), shape);
   }
 
@@ -336,15 +336,15 @@ private:
 
 class UInt64: public NArray {
 public:
-  UInt64(VALUE v) {
+  UInt64(VALUE v) : NArray() {
     construct_value(this->dtype(), v);
   }
 
-  UInt64(Rice::Object o) {
+  UInt64(Rice::Object o) : NArray() {
     construct_value(this->dtype(), o.value());
   }
 
-  UInt64(std::initializer_list<size_t> shape) {
+  UInt64(std::initializer_list<size_t> shape) : NArray() {
     construct_shape(this->dtype(), shape);
   }
 
@@ -364,15 +364,15 @@ private:
 
 class SComplex: public NArray {
 public:
-  SComplex(VALUE v) {
+  SComplex(VALUE v) : NArray() {
     construct_value(this->dtype(), v);
   }
 
-  SComplex(Rice::Object o) {
+  SComplex(Rice::Object o) : NArray() {
     construct_value(this->dtype(), o.value());
   }
 
-  SComplex(std::initializer_list<size_t> shape) {
+  SComplex(std::initializer_list<size_t> shape) : NArray() {
     construct_shape(this->dtype(), shape);
   }
 
@@ -384,15 +384,15 @@ private:
 
 class DComplex: public NArray {
 public:
-  DComplex(VALUE v) {
+  DComplex(VALUE v) : NArray() {
     construct_value(this->dtype(), v);
   }
 
-  DComplex(Rice::Object o) {
+  DComplex(Rice::Object o) : NArray() {
     construct_value(this->dtype(), o.value());
   }
 
-  DComplex(std::initializer_list<size_t> shape) {
+  DComplex(std::initializer_list<size_t> shape) : NArray() {
     construct_shape(this->dtype(), shape);
   }
 
@@ -404,15 +404,15 @@ private:
 
 class Bit: public NArray {
 public:
-  Bit(VALUE v) {
+  Bit(VALUE v) : NArray() {
     construct_value(this->dtype(), v);
   }
 
-  Bit(Rice::Object o) {
+  Bit(Rice::Object o) : NArray() {
     construct_value(this->dtype(), o.value());
   }
 
-  Bit(std::initializer_list<size_t> shape) {
+  Bit(std::initializer_list<size_t> shape) : NArray() {
     construct_shape(this->dtype(), shape);
   }
 
@@ -424,15 +424,15 @@ private:
 
 class RObject: public NArray {
 public:
-  RObject(VALUE v) {
+  RObject(VALUE v) : NArray() {
     construct_value(this->dtype(), v);
   }
 
-  RObject(Rice::Object o) {
+  RObject(Rice::Object o) : NArray() {
     construct_value(this->dtype(), o.value());
   }
 
-  RObject(std::initializer_list<size_t> shape) {
+  RObject(std::initializer_list<size_t> shape) : NArray() {
     construct_shape(this->dtype(), shape);
   }
 
