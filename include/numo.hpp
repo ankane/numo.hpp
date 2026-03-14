@@ -17,45 +17,45 @@ namespace numo {
 
 class NArray {
 public:
-  NArray(VALUE v) : NArray(this->dtype(), v) { }
+  NArray(VALUE v) : NArray(dtype(), v) { }
 
-  NArray(Rice::Object o) : NArray(this->dtype(), o.value()) { }
+  NArray(Rice::Object o) : NArray(dtype(), o.value()) { }
 
   VALUE value() const {
-    return this->_value;
+    return _value;
   }
 
   size_t ndim() const {
-    return RNARRAY_NDIM(this->_value);
+    return RNARRAY_NDIM(_value);
   }
 
   size_t* shape() const {
-    return RNARRAY_SHAPE(this->_value);
+    return RNARRAY_SHAPE(_value);
   }
 
   size_t size() const {
-    return RNARRAY_SIZE(this->_value);
+    return RNARRAY_SIZE(_value);
   }
 
   bool is_contiguous() const {
-    return Rice::detail::protect(nary_check_contiguous, this->_value) == Qtrue;
+    return Rice::detail::protect(nary_check_contiguous, _value) == Qtrue;
   }
 
   operator Rice::Object() const {
-    return Rice::Object{this->_value};
+    return Rice::Object{_value};
   }
 
   const void* read_ptr() {
     return Rice::detail::protect([&]() {
-      if (!nary_check_contiguous(this->_value)) {
-        this->_value = nary_dup(this->_value);
+      if (!nary_check_contiguous(_value)) {
+        _value = nary_dup(_value);
       }
-      return nary_get_pointer_for_read(this->_value) + nary_get_offset(this->_value);
+      return nary_get_pointer_for_read(_value) + nary_get_offset(_value);
     });
   }
 
   void* write_ptr() {
-    return Rice::detail::protect(nary_get_pointer_for_write, this->_value);
+    return Rice::detail::protect(nary_get_pointer_for_write, _value);
   }
 
 protected:
@@ -76,11 +76,11 @@ private:
 
 class SFloat: public NArray {
 public:
-  SFloat(VALUE v) : NArray(this->dtype(), v) { }
+  SFloat(VALUE v) : NArray(dtype(), v) { }
 
-  SFloat(Rice::Object o) : NArray(this->dtype(), o) { }
+  SFloat(Rice::Object o) : NArray(dtype(), o) { }
 
-  SFloat(std::initializer_list<size_t> shape) : NArray(this->dtype(), shape) { }
+  SFloat(std::initializer_list<size_t> shape) : NArray(dtype(), shape) { }
 
   const float* read_ptr() {
     return static_cast<const float*>(NArray::read_ptr());
@@ -98,11 +98,11 @@ private:
 
 class DFloat: public NArray {
 public:
-  DFloat(VALUE v) : NArray(this->dtype(), v) { }
+  DFloat(VALUE v) : NArray(dtype(), v) { }
 
-  DFloat(Rice::Object o) : NArray(this->dtype(), o) { }
+  DFloat(Rice::Object o) : NArray(dtype(), o) { }
 
-  DFloat(std::initializer_list<size_t> shape) : NArray(this->dtype(), shape) { }
+  DFloat(std::initializer_list<size_t> shape) : NArray(dtype(), shape) { }
 
   const double* read_ptr() {
     return static_cast<const double*>(NArray::read_ptr());
@@ -120,11 +120,11 @@ private:
 
 class Int8: public NArray {
 public:
-  Int8(VALUE v) : NArray(this->dtype(), v) { }
+  Int8(VALUE v) : NArray(dtype(), v) { }
 
-  Int8(Rice::Object o) : NArray(this->dtype(), o) { }
+  Int8(Rice::Object o) : NArray(dtype(), o) { }
 
-  Int8(std::initializer_list<size_t> shape) : NArray(this->dtype(), shape) { }
+  Int8(std::initializer_list<size_t> shape) : NArray(dtype(), shape) { }
 
   const int8_t* read_ptr() {
     return static_cast<const int8_t*>(NArray::read_ptr());
@@ -142,11 +142,11 @@ private:
 
 class Int16: public NArray {
 public:
-  Int16(VALUE v) : NArray(this->dtype(), v) { }
+  Int16(VALUE v) : NArray(dtype(), v) { }
 
-  Int16(Rice::Object o) : NArray(this->dtype(), o) { }
+  Int16(Rice::Object o) : NArray(dtype(), o) { }
 
-  Int16(std::initializer_list<size_t> shape) : NArray(this->dtype(), shape) { }
+  Int16(std::initializer_list<size_t> shape) : NArray(dtype(), shape) { }
 
   const int16_t* read_ptr() {
     return static_cast<const int16_t*>(NArray::read_ptr());
@@ -164,11 +164,11 @@ private:
 
 class Int32: public NArray {
 public:
-  Int32(VALUE v) : NArray(this->dtype(), v) { }
+  Int32(VALUE v) : NArray(dtype(), v) { }
 
-  Int32(Rice::Object o) : NArray(this->dtype(), o) { }
+  Int32(Rice::Object o) : NArray(dtype(), o) { }
 
-  Int32(std::initializer_list<size_t> shape) : NArray(this->dtype(), shape) { }
+  Int32(std::initializer_list<size_t> shape) : NArray(dtype(), shape) { }
 
   const int32_t* read_ptr() {
     return static_cast<const int32_t*>(NArray::read_ptr());
@@ -186,11 +186,11 @@ private:
 
 class Int64: public NArray {
 public:
-  Int64(VALUE v) : NArray(this->dtype(), v) { }
+  Int64(VALUE v) : NArray(dtype(), v) { }
 
-  Int64(Rice::Object o) : NArray(this->dtype(), o) { }
+  Int64(Rice::Object o) : NArray(dtype(), o) { }
 
-  Int64(std::initializer_list<size_t> shape) : NArray(this->dtype(), shape) { }
+  Int64(std::initializer_list<size_t> shape) : NArray(dtype(), shape) { }
 
   const int64_t* read_ptr() {
     return static_cast<const int64_t*>(NArray::read_ptr());
@@ -208,11 +208,11 @@ private:
 
 class UInt8: public NArray {
 public:
-  UInt8(VALUE v) : NArray(this->dtype(), v) { }
+  UInt8(VALUE v) : NArray(dtype(), v) { }
 
-  UInt8(Rice::Object o) : NArray(this->dtype(), o) { }
+  UInt8(Rice::Object o) : NArray(dtype(), o) { }
 
-  UInt8(std::initializer_list<size_t> shape) : NArray(this->dtype(), shape) { }
+  UInt8(std::initializer_list<size_t> shape) : NArray(dtype(), shape) { }
 
   const uint8_t* read_ptr() {
     return static_cast<const uint8_t*>(NArray::read_ptr());
@@ -230,11 +230,11 @@ private:
 
 class UInt16: public NArray {
 public:
-  UInt16(VALUE v) : NArray(this->dtype(), v) { }
+  UInt16(VALUE v) : NArray(dtype(), v) { }
 
-  UInt16(Rice::Object o) : NArray(this->dtype(), o) { }
+  UInt16(Rice::Object o) : NArray(dtype(), o) { }
 
-  UInt16(std::initializer_list<size_t> shape) : NArray(this->dtype(), shape) { }
+  UInt16(std::initializer_list<size_t> shape) : NArray(dtype(), shape) { }
 
   const uint16_t* read_ptr() {
     return static_cast<const uint16_t*>(NArray::read_ptr());
@@ -252,11 +252,11 @@ private:
 
 class UInt32: public NArray {
 public:
-  UInt32(VALUE v) : NArray(this->dtype(), v) { }
+  UInt32(VALUE v) : NArray(dtype(), v) { }
 
-  UInt32(Rice::Object o) : NArray(this->dtype(), o) { }
+  UInt32(Rice::Object o) : NArray(dtype(), o) { }
 
-  UInt32(std::initializer_list<size_t> shape) : NArray(this->dtype(), shape) { }
+  UInt32(std::initializer_list<size_t> shape) : NArray(dtype(), shape) { }
 
   const uint32_t* read_ptr() {
     return static_cast<const uint32_t*>(NArray::read_ptr());
@@ -274,11 +274,11 @@ private:
 
 class UInt64: public NArray {
 public:
-  UInt64(VALUE v) : NArray(this->dtype(), v) { }
+  UInt64(VALUE v) : NArray(dtype(), v) { }
 
-  UInt64(Rice::Object o) : NArray(this->dtype(), o) { }
+  UInt64(Rice::Object o) : NArray(dtype(), o) { }
 
-  UInt64(std::initializer_list<size_t> shape) : NArray(this->dtype(), shape) { }
+  UInt64(std::initializer_list<size_t> shape) : NArray(dtype(), shape) { }
 
   const uint64_t* read_ptr() {
     return static_cast<const uint64_t*>(NArray::read_ptr());
@@ -296,11 +296,11 @@ private:
 
 class SComplex: public NArray {
 public:
-  SComplex(VALUE v) : NArray(this->dtype(), v) { }
+  SComplex(VALUE v) : NArray(dtype(), v) { }
 
-  SComplex(Rice::Object o) : NArray(this->dtype(), o) { }
+  SComplex(Rice::Object o) : NArray(dtype(), o) { }
 
-  SComplex(std::initializer_list<size_t> shape) : NArray(this->dtype(), shape) { }
+  SComplex(std::initializer_list<size_t> shape) : NArray(dtype(), shape) { }
 
 private:
   VALUE dtype() {
@@ -310,11 +310,11 @@ private:
 
 class DComplex: public NArray {
 public:
-  DComplex(VALUE v) : NArray(this->dtype(), v) { }
+  DComplex(VALUE v) : NArray(dtype(), v) { }
 
-  DComplex(Rice::Object o) : NArray(this->dtype(), o) { }
+  DComplex(Rice::Object o) : NArray(dtype(), o) { }
 
-  DComplex(std::initializer_list<size_t> shape) : NArray(this->dtype(), shape) { }
+  DComplex(std::initializer_list<size_t> shape) : NArray(dtype(), shape) { }
 
 private:
   VALUE dtype() {
@@ -324,11 +324,11 @@ private:
 
 class Bit: public NArray {
 public:
-  Bit(VALUE v) : NArray(this->dtype(), v) { }
+  Bit(VALUE v) : NArray(dtype(), v) { }
 
-  Bit(Rice::Object o) : NArray(this->dtype(), o) { }
+  Bit(Rice::Object o) : NArray(dtype(), o) { }
 
-  Bit(std::initializer_list<size_t> shape) : NArray(this->dtype(), shape) { }
+  Bit(std::initializer_list<size_t> shape) : NArray(dtype(), shape) { }
 
 private:
   VALUE dtype() {
@@ -338,11 +338,11 @@ private:
 
 class RObject: public NArray {
 public:
-  RObject(VALUE v) : NArray(this->dtype(), v) { }
+  RObject(VALUE v) : NArray(dtype(), v) { }
 
-  RObject(Rice::Object o) : NArray(this->dtype(), o) { }
+  RObject(Rice::Object o) : NArray(dtype(), o) { }
 
-  RObject(std::initializer_list<size_t> shape) : NArray(this->dtype(), shape) { }
+  RObject(std::initializer_list<size_t> shape) : NArray(dtype(), shape) { }
 
   const VALUE* read_ptr() {
     return static_cast<const VALUE*>(NArray::read_ptr());
