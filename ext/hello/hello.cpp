@@ -1,4 +1,5 @@
-#include "numo.hpp"
+#include <numo.hpp>
+#include <rice/rice.hpp>
 
 void convert(numo::SFloat x) {
 }
