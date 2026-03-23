@@ -34,7 +34,7 @@ define_function("sum", [](numo::SFloat a) { /* your code */ });
 Or create a new array
 
 ```cpp
-auto a = numo::Int64({3, 5});
+numo::Int64 a({3, 5});
 ```
 
 And use a pointer to write to it
@@ -50,37 +50,37 @@ ptr[1] = 3;
 Get the number of dimensions
 
 ```cpp
-a.ndim();
+size_t ndim = a.ndim();
 ```
 
 Get the number of elements
 
 ```cpp
-a.size();
+size_t size = a.size();
 ```
 
 Get the shape
 
 ```cpp
-a.shape();
+const size_t* shape = a.shape();
 ```
 
 Get a read pointer
 
 ```cpp
-a.read_ptr();
+const auto* ptr = a.read_ptr();
 ```
 
 Get a write pointer
 
 ```cpp
-a.write_ptr();
+auto* ptr = a.write_ptr();
 ```
 
 Check if contiguous
 
 ```cpp
-a.is_contiguous();
+bool contiguous = a.is_contiguous();
 ```
 
 ## Projects
