@@ -1,3 +1,7 @@
+## 0.3.2 (unreleased)
+
+- Added `shape(n)` method
+
 ## 0.3.1 (2026-02-12)
 
 - Fixed memory leak with cast exceptions

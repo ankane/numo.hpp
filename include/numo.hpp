@@ -34,6 +34,13 @@ public:
     return RNARRAY_SHAPE(_value);
   }
 
+  size_t shape(size_t n) const {
+    if (n >= ndim()) {
+      throw std::out_of_range{"index out of range"};
+    }
+    return shape()[n];
+  }
+
   size_t size() const {
     return RNARRAY_SIZE(_value);
   }

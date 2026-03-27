@@ -6,6 +6,22 @@ class MethodsTest < Minitest::Test
     assert_equal 2, Hello.ndim(x)
   end
 
+  def test_shape
+    x = Numo::SFloat.new(2, 3)
+    assert_equal 2, Hello.shape(x, 0)
+    assert_equal 3, Hello.shape(x, 1)
+
+    error = assert_raises(IndexError) do
+      Hello.shape(x, 2)
+    end
+    assert_equal "index out of range", error.message
+
+    error = assert_raises(IndexError) do
+      Hello.shape(x, -1)
+    end
+    assert_equal "index out of range", error.message
+  end
+
   def test_size
     x = Numo::SFloat.new(2, 3)
     assert_equal 6, Hello.size(x)
