@@ -16,22 +16,18 @@
 
 namespace numo {
 
-class NArray {
+class NArray : public Rice::Object {
 public:
   NArray(VALUE v) : NArray(dtype(), v) { }
 
   NArray(Rice::Object o) : NArray(dtype(), o.value()) { }
 
-  VALUE value() const {
-    return _value;
-  }
-
   size_t ndim() const {
-    return RNARRAY_NDIM(_value);
+    return RNARRAY_NDIM(value());
   }
 
   size_t* shape() const {
-    return RNARRAY_SHAPE(_value);
+    return RNARRAY_SHAPE(value());
   }
 
   size_t shape(size_t n) const {
@@ -42,39 +38,33 @@ public:
   }
 
   size_t size() const {
-    return RNARRAY_SIZE(_value);
+    return RNARRAY_SIZE(value());
   }
 
   bool is_contiguous() const {
-    return Rice::detail::protect(nary_check_contiguous, _value) == Qtrue;
-  }
-
-  operator Rice::Object() const {
-    return Rice::Object{_value};
+    return Rice::detail::protect(nary_check_contiguous, value()) == Qtrue;
   }
 
   const void* read_ptr() {
     return Rice::detail::protect([&]() {
-      if (!nary_check_contiguous(_value)) {
-        _value = nary_dup(_value);
+      if (!nary_check_contiguous(value())) {
+        set_value(nary_dup(value()));
       }
-      return nary_get_pointer_for_read(_value) + nary_get_offset(_value);
+      return nary_get_pointer_for_read(value()) + nary_get_offset(value());
     });
   }
 
   void* write_ptr() {
-    return Rice::detail::protect(nary_get_pointer_for_write, _value);
+    return Rice::detail::protect(nary_get_pointer_for_write, value());
   }
 
 protected:
-  NArray(VALUE dtype, VALUE v) : _value{Rice::detail::protect(rb_funcall, dtype, rb_intern("cast"), 1, v)} { }
+  NArray(VALUE dtype, VALUE v) : Rice::Object(Rice::detail::protect(rb_funcall, dtype, rb_intern("cast"), 1, v)) { }
 
   NArray(VALUE dtype, Rice::Object o) : NArray(dtype, o.value()) { }
 
   // rb_narray_new doesn't modify shape, but not marked as const
-  NArray(VALUE dtype, std::initializer_list<size_t> shape) : _value{Rice::detail::protect(rb_narray_new, dtype, shape.size(), const_cast<size_t*>(shape.begin()))} { }
-
-  VALUE _value;
+  NArray(VALUE dtype, std::initializer_list<size_t> shape) : Rice::Object(Rice::detail::protect(rb_narray_new, dtype, shape.size(), const_cast<size_t*>(shape.begin()))) { }
 
 private:
   static VALUE dtype() {

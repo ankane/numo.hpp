@@ -1,6 +1,7 @@
-## 0.3.2 (unreleased)
+## 0.4.0 (unreleased)
 
 - Added `shape(n)` method
+- Changed `NArray` to inherit from `Rice::Object`
 
 ## 0.3.1 (2026-02-12)
 
