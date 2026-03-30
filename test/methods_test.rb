@@ -33,6 +33,18 @@ class MethodsTest < Minitest::Test
     refute Hello.contiguous?(x.reverse)
   end
 
+  def test_is_frozen
+    x = Numo::SFloat.new(2, 3)
+    assert_equal false, x.frozen?
+    x.freeze
+    assert_equal true, x.frozen?
+  end
+
+  def test_call
+    x = Numo::SFloat.new(2, 3)
+    assert_equal 2, Hello.call(x)
+  end
+
   def test_read_ptr
     assert_equal [1, 2, 3], Hello.read_ptr(Numo::Int64.cast([1, 2, 3]))
     assert_equal [2, 3], Hello.read_ptr(Numo::Int64.cast([1, 2, 3])[1..-1])

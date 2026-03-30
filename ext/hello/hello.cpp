@@ -37,6 +37,8 @@ void Init_hello() {
     .define_singleton_function("shape", [](const numo::NArray a, size_t n) { return a.shape(n); })
     .define_singleton_function("size", [](const numo::NArray a) { return a.size(); })
     .define_singleton_function("contiguous?", [](const numo::NArray a) { return a.is_contiguous(); })
+    .define_singleton_function("frozen?", [](const numo::NArray a) { return a.is_frozen(); })
+    .define_singleton_function("call", [](const numo::NArray a) { return a.call("ndim"); })
     .define_singleton_function(
       "read_ptr",
       [](numo::Int64 a) {
