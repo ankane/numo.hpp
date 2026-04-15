@@ -1,6 +1,6 @@
 # Numo.hpp
 
-C++ header for [Numo](https://github.com/ruby-numo/numo-narray) and [Rice](https://github.com/jasonroelofs/rice)
+C++ header for [numo-narray-alt](https://github.com/yoshoku/numo-narray-alt) and [Rice](https://github.com/jasonroelofs/rice)
 
 [![Build Status](https://github.com/ankane/numo.hpp/actions/workflows/build.yml/badge.svg)](https://github.com/ankane/numo.hpp/actions)
 
@@ -9,11 +9,11 @@ C++ header for [Numo](https://github.com/ruby-numo/numo-narray) and [Rice](https
 Copy [numo.hpp](https://raw.githubusercontent.com/ankane/numo.hpp/v0.3.1/include/numo.hpp) into your project and add the following lines to `extconf.rb`:
 
 ```ruby
-require "numo/narray"
+require "numo/narray/alt"
 
-numo = File.join(Gem.loaded_specs["numo-narray"].require_path, "numo")
+numo = File.join(Gem.loaded_specs["numo-narray-alt"].require_path, "numo")
 abort "Numo header not found" unless find_header("numo/narray.h", numo)
-abort "Numo library not found" if Gem.win_platform? && !find_library("narray", nil, numo)
+abort "Numo library not found" if Gem.win_platform? && !find_library("narray", nil, "#{numo}/narray")
 $LDFLAGS += " -Wl,-undefined,dynamic_lookup" if RbConfig::CONFIG["host_os"] =~ /darwin/i
 ```
 

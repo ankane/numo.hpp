@@ -1,5 +1,5 @@
 require "mkmf-rice"
-require "numo/narray"
+require "numo/narray/alt"
 
 numo = File.join(Gem.loaded_specs["numo-narray-alt"].require_path, "numo")
 abort "Numo header not found" unless find_header("numo/narray.h", numo)
