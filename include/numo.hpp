@@ -9,6 +9,7 @@
 #include <cstddef>
 #include <cstdint>
 #include <initializer_list>
+#include <span>
 
 #include <rice/rice.hpp>
 
@@ -26,8 +27,8 @@ public:
     return RNARRAY_NDIM(value());
   }
 
-  size_t* shape() const {
-    return RNARRAY_SHAPE(value());
+  std::span<const size_t> shape() const {
+    return std::span{RNARRAY_SHAPE(value()), ndim()};
   }
 
   size_t shape(size_t n) const {
