@@ -1,8 +1,6 @@
 require "mkmf-rice"
 require "numo/narray/alt"
 
-$CXXFLAGS += " -std=c++20"
-
 numo = File.join(Gem.loaded_specs["numo-narray-alt"].require_path, "numo")
 abort "Numo header not found" unless find_header("numo/narray.h", numo)
 abort "Numo library not found" if Gem.win_platform? && !find_library("narray", nil, "#{numo}/narray")

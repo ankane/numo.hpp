@@ -3,8 +3,6 @@
 - Added `shape(n)` method
 - Changed `NArray` to inherit from `Rice::Object`
 - Changed `read_ptr` and `write_ptr` methods to raise exception for non-contiguous arrays
-- Changed `shape` method to return span
-- Dropped support for C++17
 
 ## 0.3.1 (2026-02-12)
 
