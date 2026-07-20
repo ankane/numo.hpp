@@ -88,7 +88,6 @@ bool contiguous = a.is_contiguous();
 Projects that use Numo.hpp
 
 - [Faiss](https://github.com/ankane/faiss)
-- [Midas](https://github.com/ankane/midas)
 - [Umappp](https://github.com/kojix2/ruby-umappp)
 
 ## History
