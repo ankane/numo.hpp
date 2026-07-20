@@ -48,7 +48,7 @@ class MethodsTest < Minitest::Test
   def test_read_ptr
     assert_equal [1, 2, 3], Hello.read_ptr(Numo::Int64.cast([1, 2, 3]))
     assert_equal [2, 3], Hello.read_ptr(Numo::Int64.cast([1, 2, 3])[1..-1])
-    assert_equal [3, 2, 1], Hello.read_ptr(Numo::Int64.cast([1, 2, 3].reverse))
+    assert_equal [3, 2, 1], Hello.read_ptr(Numo::Int64.cast([1, 2, 3]).reverse)
     assert_equal [1, 3, 2, 4], Hello.read_ptr(Numo::Int64.cast([[1, 2], [3, 4]]).transpose)
   end
 
