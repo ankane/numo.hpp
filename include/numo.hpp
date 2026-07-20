@@ -45,16 +45,19 @@ public:
     return Rice::detail::protect(nary_check_contiguous, value()) == Qtrue;
   }
 
-  const void* read_ptr() {
+  const void* read_ptr() const {
+    if (!is_contiguous()) {
+      throw std::runtime_error{"non-contiguous array"};
+    }
     return Rice::detail::protect([&]() {
-      if (!nary_check_contiguous(value())) {
-        set_value(nary_dup(value()));
-      }
       return nary_get_pointer_for_read(value()) + nary_get_offset(value());
     });
   }
 
   void* write_ptr() {
+    if (!is_contiguous()) {
+      throw std::runtime_error{"non-contiguous array"};
+    }
     return Rice::detail::protect(nary_get_pointer_for_write, value());
   }
 
@@ -80,7 +83,7 @@ public:
 
   SFloat(std::initializer_list<size_t> shape) : NArray(dtype(), shape) { }
 
-  const float* read_ptr() {
+  const float* read_ptr() const {
     return static_cast<const float*>(NArray::read_ptr());
   }
 
@@ -102,7 +105,7 @@ public:
 
   DFloat(std::initializer_list<size_t> shape) : NArray(dtype(), shape) { }
 
-  const double* read_ptr() {
+  const double* read_ptr() const {
     return static_cast<const double*>(NArray::read_ptr());
   }
 
@@ -124,7 +127,7 @@ public:
 
   Int8(std::initializer_list<size_t> shape) : NArray(dtype(), shape) { }
 
-  const int8_t* read_ptr() {
+  const int8_t* read_ptr() const {
     return static_cast<const int8_t*>(NArray::read_ptr());
   }
 
@@ -146,7 +149,7 @@ public:
 
   Int16(std::initializer_list<size_t> shape) : NArray(dtype(), shape) { }
 
-  const int16_t* read_ptr() {
+  const int16_t* read_ptr() const {
     return static_cast<const int16_t*>(NArray::read_ptr());
   }
 
@@ -168,7 +171,7 @@ public:
 
   Int32(std::initializer_list<size_t> shape) : NArray(dtype(), shape) { }
 
-  const int32_t* read_ptr() {
+  const int32_t* read_ptr() const {
     return static_cast<const int32_t*>(NArray::read_ptr());
   }
 
@@ -190,7 +193,7 @@ public:
 
   Int64(std::initializer_list<size_t> shape) : NArray(dtype(), shape) { }
 
-  const int64_t* read_ptr() {
+  const int64_t* read_ptr() const {
     return static_cast<const int64_t*>(NArray::read_ptr());
   }
 
@@ -212,7 +215,7 @@ public:
 
   UInt8(std::initializer_list<size_t> shape) : NArray(dtype(), shape) { }
 
-  const uint8_t* read_ptr() {
+  const uint8_t* read_ptr() const {
     return static_cast<const uint8_t*>(NArray::read_ptr());
   }
 
@@ -234,7 +237,7 @@ public:
 
   UInt16(std::initializer_list<size_t> shape) : NArray(dtype(), shape) { }
 
-  const uint16_t* read_ptr() {
+  const uint16_t* read_ptr() const {
     return static_cast<const uint16_t*>(NArray::read_ptr());
   }
 
@@ -256,7 +259,7 @@ public:
 
   UInt32(std::initializer_list<size_t> shape) : NArray(dtype(), shape) { }
 
-  const uint32_t* read_ptr() {
+  const uint32_t* read_ptr() const {
     return static_cast<const uint32_t*>(NArray::read_ptr());
   }
 
@@ -278,7 +281,7 @@ public:
 
   UInt64(std::initializer_list<size_t> shape) : NArray(dtype(), shape) { }
 
-  const uint64_t* read_ptr() {
+  const uint64_t* read_ptr() const {
     return static_cast<const uint64_t*>(NArray::read_ptr());
   }
 
@@ -342,7 +345,7 @@ public:
 
   RObject(std::initializer_list<size_t> shape) : NArray(dtype(), shape) { }
 
-  const VALUE* read_ptr() {
+  const VALUE* read_ptr() const {
     return static_cast<const VALUE*>(NArray::read_ptr());
   }
 

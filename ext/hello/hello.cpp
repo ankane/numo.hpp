@@ -41,7 +41,7 @@ void Init_hello() {
     .define_singleton_function("call", [](const numo::NArray a) { return a.call("ndim"); })
     .define_singleton_function(
       "read_ptr",
-      [](numo::Int64 a) {
+      [](const numo::Int64 a) {
         const auto* ptr = a.read_ptr();
         Rice::Array b;
         for (size_t i = 0; i < a.size(); i++) {

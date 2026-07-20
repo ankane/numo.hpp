@@ -48,8 +48,16 @@ class MethodsTest < Minitest::Test
   def test_read_ptr
     assert_equal [1, 2, 3], Hello.read_ptr(Numo::Int64.cast([1, 2, 3]))
     assert_equal [2, 3], Hello.read_ptr(Numo::Int64.cast([1, 2, 3])[1..-1])
-    assert_equal [3, 2, 1], Hello.read_ptr(Numo::Int64.cast([1, 2, 3]).reverse)
-    assert_equal [1, 3, 2, 4], Hello.read_ptr(Numo::Int64.cast([[1, 2], [3, 4]]).transpose)
+
+    error = assert_raises(RuntimeError) do
+      assert_equal [3, 2, 1], Hello.read_ptr(Numo::Int64.cast([1, 2, 3]).reverse)
+    end
+    assert_equal "non-contiguous array", error.message
+
+    error = assert_raises(RuntimeError) do
+      Hello.read_ptr(Numo::Int64.cast([[1, 2], [3, 4]]).transpose)
+    end
+    assert_equal "non-contiguous array", error.message
   end
 
   def test_write_ptr
@@ -64,8 +72,10 @@ class MethodsTest < Minitest::Test
 
     # view, changed
     c = Numo::Int64.new(3).seq.reverse
-    Hello.write_ptr(c)
-    assert_equal [3, 2, 1], c.to_a
+    error = assert_raises(RuntimeError) do
+      Hello.write_ptr(c)
+    end
+    assert_equal "non-contiguous array", error.message
   end
 
   def test_write_ptr_new
